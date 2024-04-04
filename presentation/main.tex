@@ -105,6 +105,25 @@
         \end{columns}
 \end{frame}
 
+\begin{frame}{ARWU Rankings}{Description and Usage}
+    ARWU (Academic Ranking of World Universities) is a set of university rankings based primarily on research output.
+    \begin{itemize}
+        \item Rankings are produced annually and are available from 2003
+        \item From 2003 to 2016, 500 top universities were ranked; after 2017, 1000 were ranked.
+    \end{itemize}
+    
+    \begin{block}{Per-Capita Scaling}
+        Larger countries naturally have an advantage, so a more fair metric is
+        \[ARWU_{i,t} = \frac{arwuCount_{i,t}}{P_{i,t}} \cdot 10^6 \]
+        Instead, looking at ARWU insitutions per million population indicates the relative quantity of elite insitutions in a country/region.
+    \end{block}
+    
+\end{frame}
+
+\begin{frame}{Rationale for variables}
+    Capturing the ability of a country/region/education system to produce and identify elite talent is difficult. There are many potential omitted variables which may bias results.
+\end{frame}
+
 \begin{frame}{Model specification}
     Let variables of interest be: $math99, ARWU, ARWU \times GDPpc, IMO$.
     For the sake of concision, let $E$ be a 1 by 4 matrix defined as:
@@ -115,9 +134,13 @@
     \]
     Let the coefficients of $E_{i, t}$ be a 4 by 1 matrix called $\lambda$. For control variables, $C_{i, t}$ is the matrix of variables and $\alpha$ is coefficients..
     \begin{equation}
-        Y_{i, t} = \beta_0 + \lambda E_{i, t} + \alpha C_{i, t} + \epsilon_{i, t}
+        Y_{i, t} = \beta_0 + \lambda E_{i, t} + \alpha C_{i, t} + T_t + \epsilon_{i, t}
     \end{equation}
-    
+    Due to missing data, consider another regression model which does not include $math99, math$:
+    \begin{equation}
+        Y_{i, t} = \alpha_0 + \lambda_{np} Enp_{i, t} + \alpha_{np} Cnp_{i, t} + T_t + \epsilon_{i, t}
+    \end{equation}
+    where $Y_{i,t}$ is GDP per capita growth in basis points. Time effects are included to control for secular changes (e.g. business cycles).
 \end{frame}
 
 \begin{frame}{PISA data regression}{Highly dependent on model specification due to rich country bias and limited variation}
@@ -167,6 +190,29 @@
         \end{table}
 \end{frame}
 
+\begin{frame}{Interpreting Regressions}{PISA regressions}
+    Regression results do not present a clear picture of the existence of a statistical relationship between elite indicators and economic growth.
+    \begin{block}{Little variation in data}
+        \begin{itemize}
+            \item Countries and regions with PISA test scores tend to be wealthier, more developed economies
+            \item Low variance within countries over time and between countries as a result
+        \end{itemize}
+    \end{block}
+
+    \begin{block}{Model specification matters}
+        \begin{itemize}
+            \item Including entity fixed effects makes the most significant difference versus time effects (likely due to above)
+            \item Magnitudes of $math99$ is 10x larger when entity fixed effects are included; similar for $IMO$
+            \item $ARWU$ and interaction terms reversed in sign compared to not including fixed effects
+            \begin{itemize}
+                \item Possibly due to omitted variable bias that is captured by fixed effects
+            \end{itemize}
+        \end{itemize}
+
+    \end{block}
+    
+\end{frame}
+
 \begin{frame}
     \frametitle{Non-PISA data regression}
     \begin{table}[!htbp] \centering
@@ -211,6 +257,6 @@
             \end{tabular}
         }
         \end{table}
-    \end{frame}
+\end{frame}
 
 \end{document}
