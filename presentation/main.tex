@@ -33,6 +33,7 @@
     \item World Bank: World Development Indicators
     \item International Math Olympiad
     \item ARWU University Rankings
+    \item PISA Math Scores
     \item Economist Democracy Scores
 \end{itemize}
 \end{frame}
@@ -138,8 +139,22 @@
     
 \end{frame}
 
+\begin{frame}{Summary Statistics}
+    Hello
+\end{frame}
+
 \begin{frame}{Rationale for variables}
-    Capturing the ability of a country/region/education system to produce and identify elite talent is difficult. There are many potential omitted variables which may bias results.
+    \begin{block}{IMO Scores}
+        Indicator for a country's (and region's) ability to develop/identify pinncale STEM talent at high school level.
+    \end{block}
+
+    \begin{block}{ARWU Rankings}
+        Indicator for a country's (and region's) ability to produce exellence in research output.
+    \end{block}
+
+    \begin{block}{Percent in PISA 99th percentile}
+        When controlling for average PISA math scores, this is a partial indicator for whether general excellence in academics is encouraged/necessary.
+    \end{block}
 \end{frame}
 
 \begin{frame}{Model specification}
@@ -159,6 +174,10 @@
         Y_{i, t} = \alpha_0 + \lambda_{np} Enp_{i, t} + \alpha_{np} Cnp_{i, t} + T_t + \epsilon_{i, t}
     \end{equation}
     where $Y_{i,t}$ is GDP per capita growth in basis points. Time effects are included to control for secular changes (e.g. business cycles).
+\end{frame}
+
+\begin{frame}{Relationships}
+    Insert scatter plots for each of 3 key variables.
 \end{frame}
 
 \begin{frame}{PISA data regression}{Highly dependent on model specification due to rich country bias and limited variation}
