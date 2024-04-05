@@ -67,6 +67,24 @@
     \includegraphics[width=\textwidth]{../charts/wdi-count.png}
 \end{frame}
 
+\begin{frame}{Imputing nulls}{Using XGBoost for better predictions}
+    \begin{block}{Data is not missing at random}
+        School completion data is only available for a maximum of 80 countries per year and has high variance in this availablility.
+        This is the most limiting factor in the analysis.
+    \end{block}
+
+    \begin{block}{Predicting missing values}
+        XGBoost is a tree-based model that has built-in null handling. I use the remaining variables to predict school completion rates.
+        Achieves significantly higher accuracy than linear regression.
+    \end{block}
+    
+\end{frame}
+
+\begin{frame}{Imputation results}
+    \centering
+    \includegraphics[width=\textwidth]{../build/xgboost.png}
+\end{frame}
+
 \begin{frame}{IMO Scores}{The IMO is an international mathematics contest for high school students
     }
     \begin{columns}
