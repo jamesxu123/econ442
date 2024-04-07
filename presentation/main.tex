@@ -1,6 +1,9 @@
 \documentclass[10pt]{beamer}
 \usepackage{pgf}
 \usepackage{booktabs}
+\usepackage{array}
+\usepackage{ragged2e}
+% \usepackage{booktabs}
 %Information to be included in the title page:
 \title{Elite individuals, insitutions, and economic growth accounting}
 \author{James Xu}
@@ -144,8 +147,57 @@
     
 \end{frame}
 
+\begin{frame}{PISA Math Scores}
+    World-wide study to evaluate 15-year-old students' performance on math, science, and reading. Testing is done usually every 3 years, starting from 2000. 2021 study was delayed to 2022 due to COVID.
+
+    \begin{itemize}
+        \item This paper uses PISA mathematics data from 2003 to 2022
+        \item Countries included are mostly OECD (wealthier), with some other regions/countries participating
+        \item Must use weighted means because of survey methodology $math_{c, t} = \frac{\sum_{i \in c \cap t} stu\_math_i \cdot stu\_wgt_i}{\sum_{i \in c \cap t} stu\_wgt_i}$
+    \end{itemize}
+
+    As an indicator of ``elite'' academic performance, also compute the share of students in a region/country in global 1\% of test takers (benchmark score $B_{t}$):
+    \[math99_{c, t} = \frac{\sum_{i \in c \cap t} (stu\_math_i \geq B_t) \cdot stu\_wgt_i}{\sum_{i \in c \cap t} stu\_wgt_i}\]
+\end{frame}
+
+
+\begin{frame}{EIU Democracy Index}
+    \begin{columns}
+        \column{0.4\textwidth}
+        Index measuring the quality of democracy around the world published by the Economist Intelligence Unit.
+        \begin{itemize}
+            \item Published from 2006 every 2 years until 2010, annually afterwards (use XGBoost to impute missing)
+            \item 0-10 scale, where 10 is democracy and 0 is autocracy.
+        \end{itemize}
+
+        \column{0.6\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../charts/eiu_2023.jpg}
+    \end{columns}
+    
+\end{frame}
+
 \begin{frame}{Summary Statistics}
-    Hello
+    \begin{table}
+        \caption{Summary Statistics}
+        \resizebox{\linewidth}{!} {
+            \begin{tabular}{lrrrrr}
+            & Count & Mean & Std & Min & Max \\
+            \\[-1.8ex]\hline
+            \hline \\[-1.8ex]
+            GDP per capita & 441.00 & 28463.99 & 25255.10 & 543.11 & 149461.79 \\
+            GDP per capita growth (bps) & 440.00 & 169.06 & 452.68 & -2292.68 & 3303.05 \\
+            Primary Completion & 441.00 & 90.00 & 10.25 & 51.35 & 101.95 \\
+            Lower Sec. Completion & 441.00 & 77.89 & 17.14 & 29.21 & 101.97 \\
+            Upper Sec. Completion & 441.00 & 62.20 & 18.48 & 18.44 & 97.40 \\
+            Population & 441.00 & 35318600.19 & 59445620.16 & 34000.00 & 333287557.00 \\
+            ARWU per million pop. ranked & 441.00 & 0.26 & 0.33 & 0.00 & 1.54 \\
+            IMO score per log pop. & 441.00 & 4.72 & 3.49 & 0.00 & 11.79 \\
+            PISA math in global 1\% & 441.00 & 0.94 & 1.46 & 0.00 & 14.64 \\
+            PISA math & 441.00 & 461.93 & 56.23 & 315.96 & 574.66 \\
+            \end{tabular}
+        }
+    \end{table}
 \end{frame}
 
 \begin{frame}{Rationale for variables}
@@ -352,7 +404,7 @@
     
 \end{frame}
 
-\begin{frame}{Limitations: data sample problems}
+\begin{frame}{Limitations: data problems}
     Regression results do not present a clear picture of the existence of a statistical relationship between elite indicators and economic growth.
     \begin{block}{Little variation in data}
         \begin{itemize}
@@ -363,11 +415,11 @@
 
     \begin{block}{Model specification matters}
         \begin{itemize}
-            \item Including entity fixed effects makes the most significant difference versus time effects (likely due to above)
-            \item Magnitudes of $math99$ is 10x larger when entity fixed effects are included; similar for $IMO$
-            \item $ARWU$ and interaction terms reversed in sign compared to not including fixed effects
+            \item Including entity fixed effects a significant difference versus time effects (likely due to above)
+            \item Large variation in $IMO, math99$ between time effects, fixed effects, panel models
+            \item Missing data (only post-2006 EIU Democracy index scores, missing school completion rates)
             \begin{itemize}
-                \item Possibly due to omitted variable bias that is captured by fixed effects
+                \item XGBoost is used to fill in this data as controls are somewhat stable year-to-year, but this is not perfect
             \end{itemize}
         \end{itemize}
 
