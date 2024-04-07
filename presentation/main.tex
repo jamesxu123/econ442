@@ -16,6 +16,10 @@
 
 \frame{\titlepage}
 
+\begin{frame}{Table of Contents}
+    \tableofcontents
+\end{frame}
+\section{Intro}
 \begin{frame}
     \frametitle{Research Question}
     \begin{block}{What is the relationship between elite students, academic institutions, and economic growth?}
@@ -30,6 +34,7 @@
     \end{exampleblock}
 \end{frame}
 
+\section{Data}
 \begin{frame}
 \frametitle{Data Sources}
 \begin{itemize}
@@ -40,7 +45,7 @@
     \item Economist Democracy Scores
 \end{itemize}
 \end{frame}
-
+\subsection{World Bank}
 \begin{frame}{World Bank Data}
     The World Bank collects and publishes development indicators for most countries/economies in the world. In this paper, I use the following variables:
 
@@ -71,6 +76,7 @@
     \includegraphics[width=\textwidth]{../charts/wdi-count.png}
 \end{frame}
 
+\subsection{Null Imputation}
 \begin{frame}{Imputing nulls}{Using XGBoost for better predictions}
     \begin{block}{Data is not missing at random}
         School completion data is only available for a maximum of 80 countries per year and has high variance in this availablility.
@@ -94,6 +100,7 @@
     \includegraphics[width=\textwidth]{../build/eiu_xgboost.png}
 \end{frame}
 
+\subsection{IMO}
 \begin{frame}{IMO Scores}{The IMO is an international mathematics contest for high school students
     }
     \begin{columns}
@@ -132,6 +139,7 @@
         \end{columns}
 \end{frame}
 
+\subsection{ARWU Rankings}
 \begin{frame}{ARWU Rankings}{Description and Usage}
     ARWU (Academic Ranking of World Universities) is a set of university rankings based primarily on research output.
     \begin{itemize}
@@ -160,7 +168,7 @@
     \[math99_{c, t} = \frac{\sum_{i \in c \cap t} (stu\_math_i \geq B_t) \cdot stu\_wgt_i}{\sum_{i \in c \cap t} stu\_wgt_i}\]
 \end{frame}
 
-
+\subsection{EIU Democracy Index}
 \begin{frame}{EIU Democracy Index}
     \begin{columns}
         \column{0.4\textwidth}
@@ -176,7 +184,7 @@
     \end{columns}
     
 \end{frame}
-
+\subsection{Summary}
 \begin{frame}{Summary Statistics}
     \begin{table}
         \caption{Summary Statistics}
@@ -228,12 +236,13 @@
     \end{block}
 \end{frame}
 
+\section{Empirical Results}
 \begin{frame}{Model specification}
     Let elite indicators be: $math99, ARWU, IMO$.
     For the sake of concision, let $E_{i,t}$ be a 1 by 4 matrix defined as:
     \[E_{i,t} = 
     \begin{bmatrix}
-        math99_{i, t} & ARWU_{i, t} & ARWU_{i, t} \times GDPpc_{i, t} & IMO_{i, t}
+        math99_{i, t} & ARWU_{i, t} & IMO_{i, t}
     \end{bmatrix}
     \] for country/region $i$ in year $t$.
     Let the coefficients of $E_{i, t}$ be a 4 by 1 matrix called $\lambda$. For control variables, $I_{i, t}$ is the matrix of variables and $\alpha$ is coefficients.
@@ -241,13 +250,15 @@
         Y_{i, t} = \beta_0 + \lambda E_{i, t} + \delta GDPpc \times E_{i,t} + \alpha I_{i, t} + T_t + C_i + \epsilon_{i, t}
     \end{equation}
     where $T,C$ represent time and entity dummies respectively and $Y_{i,t}$ be the GDP per capita growth in basis points for a country/region $i$ and year $t$.
+    
+    Different specifications where $T_t, C_i$ are added/removed are also tested. Yearly specification without fixed effects also tested.
 \end{frame}
 
 \begin{frame}{Relationships}
     \centering
     \includegraphics[width=\textwidth]{../charts/relationships.png}
 \end{frame}
-
+\subsection{Regression tables}
 \begin{frame}{PISA panel regression}{Highly dependent on model specification due to rich country bias and limited variation}
     \begin{table}[!htbp] \centering
         \resizebox{\linewidth}{!} {
@@ -394,6 +405,8 @@
 %         \end{table}
 % \end{frame}
 
+\subsection{Preliminary Interpretation}
+
 \begin{frame}{Interpretation}
     \begin{block}{IMO Scores}
         \begin{itemize}
@@ -452,6 +465,17 @@
     \end{block}
     
     
+\end{frame}
+
+\section{Appendix}
+\begin{frame}{Appendix: convergence and divergence in elite indicators}
+    \centering
+    \includegraphics[width=\textwidth]{../charts/std-dev.png}
+\end{frame}
+
+\begin{frame}{Appendix: elite indicators and GDP per capita}
+    \centering
+    \includegraphics[width=\textwidth]{../charts/relationships-gdp-pc.png}
 \end{frame}
 
 \end{document}
