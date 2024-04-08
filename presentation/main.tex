@@ -25,7 +25,7 @@
     \begin{block}{What is the relationship between elite students, academic institutions, and economic growth?}
         \begin{itemize}
             \item Are there outsized returns to economic growth when there are more academic elites?
-            \item How can we measure academic competition and education quality beyond means?
+            \item How do these indicators interact with GDP per capita? Are some more helpful for growth than others?
         \end{itemize}
     \end{block}
     \begin{exampleblock}{Method}
@@ -62,12 +62,12 @@
     \end{itemize}
 \end{frame}
 
-\begin{frame}
-    \frametitle{World Bank Data}
-    \framesubtitle{Distributions}
-    \centering
-    \includegraphics[width=\textwidth]{../charts/wdi.png}
-\end{frame}
+% \begin{frame}
+%     \frametitle{World Bank Data}
+%     \framesubtitle{Distributions}
+%     \centering
+%     \includegraphics[width=\textwidth]{../charts/wdi.png}
+% \end{frame}
 
 \begin{frame}
     \frametitle{World Bank Data}
@@ -245,7 +245,7 @@
         math99_{i, t} & ARWU_{i, t} & IMO_{i, t}
     \end{bmatrix}
     \] for country/region $i$ in year $t$.
-    Let the coefficients of $E_{i, t}$ be a 4 by 1 matrix called $\lambda$. For control variables, $I_{i, t}$ is the matrix of variables and $\alpha$ is coefficients.
+    Let the coefficients of $E_{i, t}$ be a 3 by 1 matrix called $\lambda$. For control variables, $I_{i, t}$ is the matrix of variables and $\alpha$ is coefficients.
     \begin{equation}
         Y_{i, t} = \beta_0 + \lambda E_{i, t} + \delta GDPpc \times E_{i,t} + \alpha I_{i, t} + T_t + C_i + \epsilon_{i, t}
     \end{equation}
