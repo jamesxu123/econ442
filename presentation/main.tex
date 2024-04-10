@@ -8,7 +8,7 @@
 \title{Elite individuals, insitutions, and economic growth accounting}
 \author{James Xu}
 \institute{ECON 442, Duke University}
-\date{2024}
+\date{April 11, 2024}
 \usefonttheme[onlymath]{serif}
 
 \begin{document}
@@ -25,13 +25,29 @@
     \begin{block}{What is the relationship between elite students, academic institutions, and economic growth?}
         \begin{itemize}
             \item Are there outsized returns to economic growth when there are more academic elites?
-            \item How do these indicators interact with GDP per capita? Are some more helpful for growth than others?
         \end{itemize}
     \end{block}
     \begin{exampleblock}{Method}
         Through this paper, I investigate the relationship between the number of top-ranked universities, share of top math students,
         IMO scores, and GDP per capita growth to analyze these questions.
     \end{exampleblock}
+\end{frame}
+
+\begin{frame}{Research Question}{Importance and Relevance}
+    \begin{block}{Does elite performance matters in education and human capital?}
+        \begin{itemize}
+            \item Rough measures of human capital such as school enrollment rate, are often used (e.g. Mankiw-Romer-Weil)
+            \item Elite students and top university research may give countries a technology advantage
+        \end{itemize}
+    \end{block}
+
+    \begin{block}{Implications for economic convergence}
+        \begin{itemize}
+            \item Richer, larger countries will likely have better research output and universities
+            \item Technology and trade conflict between China-US have shown that ``hoarding'' technology may widen gap between nations
+        \end{itemize}
+        
+    \end{block}
 \end{frame}
 
 \section{Data}
@@ -88,16 +104,6 @@
         Achieves significantly higher accuracy than linear regression.
     \end{block}
     
-\end{frame}
-
-\begin{frame}{Imputation results}{School completion rates}
-    \centering
-    \includegraphics[width=\textwidth]{../build/xgboost.png}
-\end{frame}
-
-\begin{frame}{Imputation results}{EIU Democracy Score}
-    \centering
-    \includegraphics[width=\textwidth]{../build/eiu_xgboost.png}
 \end{frame}
 
 \subsection{IMO}
@@ -185,42 +191,6 @@
     
 \end{frame}
 \subsection{Summary}
-\begin{frame}{Summary Statistics}
-    \begin{table}
-        \caption{Summary Statistics}
-        \resizebox{\linewidth}{!} {
-            \begin{tabular}{lrrrrr}
-                & Count & Mean & Std & Min & Max \\
-                \\[-1.8ex]\hline
-                \hline \\[-1.8ex]
-               GDP per capita & 441.00 & 28463.99 & 25255.10 & 543.11 & 149461.79 \\
-               GDP per capita growth (bps) & 440.00 & 169.06 & 452.68 & -2292.68 & 3303.05 \\
-               EIU Democracy Index & 441.00 & 7.25 & 1.77 & 1.93 & 9.93 \\
-               Primary Completion & 441.00 & 90.00 & 10.25 & 51.35 & 101.95 \\
-               Lower Sec. Completion & 441.00 & 77.89 & 17.14 & 29.21 & 101.97 \\
-               Upper Sec. Completion & 441.00 & 62.20 & 18.48 & 18.44 & 97.40 \\
-               Population & 441.00 & 35318600.19 & 59445620.16 & 34000.00 & 333287557.00 \\
-               ARWU per million pop ranked & 441.00 & 0.26 & 0.33 & 0.00 & 1.54 \\
-               IMO score per log pop & 441.00 & 4.72 & 3.49 & 0.00 & 11.79 \\
-               PISA math in global 1\% & 441.00 & 0.94 & 1.46 & 0.00 & 14.64 \\
-               PISA math & 441.00 & 461.93 & 56.23 & 315.96 & 574.66 \\
-               \end{tabular}
-        }
-    \end{table}
-    \begin{table}
-        \tiny
-        \caption{Pre-imputation Statistics}
-        \begin{tabular}{lrrrrr}
-         & Count & Mean & Std & Min & Max \\
-         \\[-1.8ex]\hline
-         \hline \\[-1.8ex]
-        EIU Democracy Index & 323.00 & 7.09 & 1.78 & 1.93 & 9.93 \\
-        Primary Completion & 157.00 & 90.29 & 10.31 & 51.35 & 100.00 \\
-        Lower Sec. Completion & 179.00 & 76.63 & 20.03 & 29.21 & 99.98 \\
-        Upper Sec. Completion & 198.00 & 62.32 & 20.58 & 18.44 & 97.40 \\
-        \end{tabular}
-        \end{table}
-\end{frame}
 
 \begin{frame}{Rationale for variables}
     \begin{block}{IMO Scores}
@@ -238,6 +208,7 @@
 
 \section{Empirical Results}
 \begin{frame}{Model specification}
+    \small
     Let elite indicators be: $math99, ARWU, IMO$.
     For the sake of concision, let $E_{i,t}$ be a 1 by 4 matrix defined as:
     \[E_{i,t} = 
@@ -245,13 +216,12 @@
         math99_{i, t} & ARWU_{i, t} & IMO_{i, t}
     \end{bmatrix}
     \] for country/region $i$ in year $t$.
-    Let the coefficients of $E_{i, t}$ be a 3 by 1 matrix called $\lambda$. For control variables, $I_{i, t}$ is the matrix of variables and $\alpha$ is coefficients.
+    For control variables, $I_{i, t}$ is the matrix of variables and $\alpha$ is coefficients.
     \begin{equation}
         Y_{i, t} = \beta_0 + \lambda E_{i, t} + \delta GDPpc \times E_{i,t} + \alpha I_{i, t} + T_t + C_i + \epsilon_{i, t}
     \end{equation}
     where $T,C$ represent time and entity dummies respectively and $Y_{i,t}$ be the GDP per capita growth in basis points for a country/region $i$ and year $t$.
-    
-    Different specifications where $T_t, C_i$ are added/removed are also tested. Yearly specification without fixed effects also tested.
+    \textbf{Controls: school completion rates, GDP per capita, PISA average math score, democracy index}
 \end{frame}
 
 \begin{frame}{Relationships}
@@ -269,45 +239,33 @@
                 \cr \cline{2-5}
                 \\[-1.8ex] & \multicolumn{1}{c}{Model 1 (base)} & \multicolumn{1}{c}{Model 2} & \multicolumn{1}{c}{Model 3 (Time FE)} & \multicolumn{1}{c}{Model 4 (Time + Entity FE)}  \\
                 \hline \\[-1.8ex]
-                 PISA Math in global P99 & & -43.491$^{}$ & -40.291$^{}$ & -126.152$^{*}$ \\
-                & & (48.245) & (40.349) & (64.627) \\
-                 PISA Math 99 x GDP PC & & 0.000$^{}$ & 0.000$^{}$ & 0.001$^{}$ \\
-                & & (0.001) & (0.001) & (0.001) \\
-                 IMO score per log population & 6.604$^{}$ & 3.629$^{}$ & 4.581$^{}$ & 20.285$^{}$ \\
-                & (8.473) & (10.582) & (8.833) & (21.169) \\
-                 IMO score x GDP pc & -0.000$^{}$ & 0.000$^{}$ & -0.000$^{}$ & -0.001$^{*}$ \\
-                & (0.000) & (0.000) & (0.000) & (0.000) \\
-                 ARWU insitutions & -588.767$^{***}$ & -538.997$^{***}$ & -580.030$^{***}$ & -764.617$^{***}$ \\
-                & (135.656) & (178.746) & (149.452) & (250.804) \\
-                 ARWU insitutions x GDP PC & 0.009$^{***}$ & 0.008$^{**}$ & 0.009$^{***}$ & 0.011$^{***}$ \\
-                & (0.003) & (0.003) & (0.003) & (0.004) \\
-                 PISA Math & & 1.150$^{}$ & 0.908$^{}$ & 0.495$^{}$ \\
-                & & (0.792) & (0.732) & (1.761) \\
-                 GDP per capita & -0.003$^{**}$ & -0.003$^{*}$ & -0.003$^{**}$ & 0.000$^{}$ \\
-                & (0.001) & (0.002) & (0.001) & (0.005) \\
-                 Primary School Completion Rate & -3.554$^{}$ & -11.911$^{***}$ & -5.387$^{}$ & -4.028$^{}$ \\
-                & (3.345) & (4.157) & (3.602) & (4.947) \\
-                 Lower Sec. Completion Rate & -1.475$^{}$ & -0.571$^{}$ & -1.291$^{}$ & -0.446$^{}$ \\
-                & (2.945) & (3.540) & (2.948) & (4.443) \\
-                 Upper Sec. Completion Rate & 5.643$^{**}$ & 6.665$^{**}$ & 5.385$^{**}$ & 3.364$^{}$ \\
-                & (2.343) & (2.835) & (2.354) & (3.692) \\
-                 Democracy Rating & -1.606$^{}$ & 2.270$^{}$ & -7.429$^{}$ & 36.204$^{}$ \\
-                & (13.894) & (17.254) & (14.431) & (61.854) \\
-                 Time Effects & Yes & No & Yes & Yes \\
+                 PISA Math in global P99 & -31.228$^{*}$ & -38.928$^{*}$ & -34.569$^{*}$ & -115.492$^{***}$ \\
+                & (16.314) & (20.802) & (17.850) & (36.599) \\
+                 IMO score per log population & 10.674$^{*}$ & 4.924$^{}$ & 3.122$^{}$ & -11.158$^{}$ \\
+                & (6.363) & (7.470) & (6.441) & (15.728) \\
+                 ARWU insitutions & -166.641$^{**}$ & -162.705$^{*}$ & -176.049$^{**}$ & -159.960$^{}$ \\
+                & (68.800) & (86.871) & (72.281) & (112.884) \\
+                 Time Effects & No & No & Yes & Yes \\
                  Fixed Effects & No & No & No & Yes \\
+                 Controls & No & Yes & Yes & Yes \\
                  Entities & 89 & 89 & 89 & 89 \\
                 \hline \\[-1.8ex]
                  Observations & 440 & 440 & 440 & 440 \\
-                 $R^2$ & 0.388 & 0.092 & 0.392 & 0.567 \\
-                 Adjusted $R^2$ & 0.364 & 0.064 & 0.364 & 0.428 \\
-                 Residual Std. Error & 360.908 (df=423) & 437.923 (df=426) & 360.976 (df=420) & 342.461 (df=332) \\
-                 F Statistic & 16.727$^{***}$ (df=16; 423) & 3.314$^{***}$ (df=13; 426) & 14.230$^{***}$ (df=19; 420) & 4.066$^{***}$ (df=107; 332) \\
+                 $R^2$ & 0.037 & 0.077 & 0.374 & 0.553 \\
+                 Adjusted $R^2$ & 0.031 & 0.056 & 0.351 & 0.414 \\
+                 Residual Std. Error & 445.700 (df=436) & 439.888 (df=429) & 364.790 (df=423) & 346.511 (df=335) \\
+                 F Statistic & 5.616$^{***}$ (df=3; 436) & 3.589$^{***}$ (df=10; 429) & 15.813$^{***}$ (df=16; 423) & 3.983$^{***}$ (df=104; 335) \\
                 \hline
                 \hline \\[-1.8ex]
                 \textit{Note:} & \multicolumn{4}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\
                 \end{tabular}
         }
         \end{table}
+        \small
+        \begin{itemize}
+            \item Introducing controls and time effects do not have a major effect on coefficients; elite indicators are not highly correlated with controls
+            \item Country/region fixed effects have small effect on ARWU variable, large effects on PISA math 99 and IMO variables
+        \end{itemize}
 \end{frame}
 
 \begin{frame}{PISA yearly regression}
@@ -320,43 +278,73 @@
                 \cr \cline{2-9}
                 \\[-1.8ex] & \multicolumn{1}{c}{2003} & \multicolumn{1}{c}{2006} & \multicolumn{1}{c}{2009} & \multicolumn{1}{c}{2012} & \multicolumn{1}{c}{2015} & \multicolumn{1}{c}{2018} & \multicolumn{1}{c}{2022} & \multicolumn{1}{c}{Panel FE}  \\
                 \hline \\[-1.8ex]
-                 PISA Math in global P99 & -36.263$^{}$ & -323.594$^{**}$ & 128.012$^{}$ & -57.807$^{}$ & 466.275$^{**}$ & -13.249$^{}$ & -185.929$^{**}$ & -126.152$^{*}$ \\
-                & (92.257) & (138.527) & (134.080) & (93.739) & (198.856) & (80.330) & (75.932) & (64.627) \\
-                 PISA Math 99 x GDP PC & -0.000$^{}$ & 0.004$^{}$ & 0.001$^{}$ & 0.001$^{}$ & -0.009$^{**}$ & 0.000$^{}$ & 0.002$^{}$ & 0.001$^{}$ \\
-                & (0.002) & (0.003) & (0.003) & (0.002) & (0.004) & (0.001) & (0.001) & (0.001) \\
-                 IMO score per log population & 5.787$^{}$ & 13.706$^{}$ & 7.250$^{}$ & 9.955$^{}$ & 27.849$^{}$ & 2.586$^{}$ & -10.574$^{}$ & 20.285$^{}$ \\
-                & (24.329) & (28.793) & (25.375) & (20.089) & (37.305) & (10.918) & (18.736) & (21.169) \\
-                 IMO score x GDP pc & -0.000$^{}$ & -0.001$^{}$ & 0.000$^{}$ & 0.000$^{}$ & -0.001$^{}$ & -0.000$^{}$ & 0.000$^{}$ & -0.001$^{*}$ \\
-                & (0.001) & (0.001) & (0.001) & (0.001) & (0.001) & (0.000) & (0.000) & (0.000) \\
-                 ARWU insitutions & -461.941$^{}$ & -374.847$^{}$ & 298.772$^{}$ & -746.052$^{**}$ & -1132.300$^{}$ & -365.119$^{}$ & -1310.810$^{***}$ & -764.617$^{***}$ \\
-                & (443.713) & (420.235) & (453.763) & (292.719) & (718.477) & (288.492) & (455.353) & (250.804) \\
-                 ARWU insitutions x GDP PC & 0.004$^{}$ & 0.001$^{}$ & -0.004$^{}$ & 0.008$^{}$ & 0.030$^{**}$ & 0.006$^{}$ & 0.013$^{}$ & 0.011$^{***}$ \\
-                & (0.011) & (0.009) & (0.009) & (0.005) & (0.014) & (0.004) & (0.008) & (0.004) \\
-                 PISA Math & 0.436$^{}$ & 6.935$^{***}$ & -6.860$^{***}$ & 0.324$^{}$ & -1.519$^{}$ & 1.177$^{}$ & 2.807$^{}$ & 0.495$^{}$ \\
-                & (1.552) & (1.906) & (2.386) & (1.489) & (2.828) & (1.002) & (2.056) & (1.761) \\
-                 GDP per capita & -0.006$^{}$ & -0.005$^{}$ & -0.000$^{}$ & -0.003$^{}$ & 0.002$^{}$ & -0.007$^{***}$ & -0.003$^{}$ & 0.000$^{}$ \\
-                & (0.005) & (0.005) & (0.006) & (0.002) & (0.005) & (0.002) & (0.004) & (0.005) \\
-                 Primary School Completion Rate & 7.306$^{}$ & -11.680$^{}$ & 4.589$^{}$ & -15.665$^{}$ & -4.820$^{}$ & -8.787$^{}$ & 4.752$^{}$ & -4.028$^{}$ \\
-                & (4.789) & (10.409) & (13.405) & (9.658) & (14.437) & (5.579) & (9.745) & (4.947) \\
-                 Lower Sec. Completion Rate & 4.652$^{}$ & 7.506$^{}$ & -0.454$^{}$ & 2.430$^{}$ & -1.228$^{}$ & 6.617$^{*}$ & -13.439$^{}$ & -0.446$^{}$ \\
-                & (6.867) & (8.157) & (8.302) & (5.785) & (10.676) & (3.951) & (8.396) & (4.443) \\
-                 Upper Sec. Completion Rate & 4.916$^{}$ & 3.930$^{}$ & -2.992$^{}$ & 5.781$^{}$ & 4.631$^{}$ & 0.908$^{}$ & 10.924$^{*}$ & 3.364$^{}$ \\
-                & (7.172) & (6.850) & (7.450) & (4.375) & (8.029) & (3.174) & (6.081) & (3.692) \\
-                 Democracy Rating & -91.681$^{**}$ & -148.435$^{**}$ & 59.739$^{}$ & 36.375$^{}$ & 25.423$^{}$ & 15.183$^{}$ & -5.316$^{}$ & 36.204$^{}$ \\
-                & (39.476) & (56.849) & (46.067) & (30.648) & (51.072) & (16.370) & (28.766) & (61.854) \\
+                 PISA Math in global P99 & -52.490$^{}$ & -193.475$^{**}$ & 154.062$^{**}$ & 16.575$^{}$ & -34.309$^{}$ & 3.769$^{}$ & -69.681$^{**}$ & -115.492$^{***}$ \\
+                & (48.524) & (84.559) & (62.680) & (36.365) & (76.140) & (27.106) & (27.702) & (36.599) \\
+                 IMO score per log population & 4.478$^{}$ & -9.112$^{}$ & 14.038$^{}$ & 7.368$^{}$ & -16.622$^{}$ & 2.193$^{}$ & -0.174$^{}$ & -11.158$^{}$ \\
+                & (17.327) & (20.741) & (17.012) & (13.983) & (27.567) & (7.722) & (13.474) & (15.728) \\
+                 ARWU insitutions & -300.038$^{**}$ & -454.401$^{***}$ & 136.623$^{}$ & -344.990$^{**}$ & 289.270$^{}$ & 61.220$^{}$ & -829.105$^{***}$ & -159.960$^{}$ \\
+                & (111.479) & (167.497) & (188.401) & (133.886) & (270.034) & (125.503) & (206.280) & (112.884) \\
+                Controls & Yes & Yes & Yes & Yes & Yes & Yes & Yes & Yes \\
                 \hline \\[-1.8ex]
                  Observations & 40 & 56 & 69 & 61 & 65 & 73 & 76 & 440 \\
-                 $R^2$ & 0.677 & 0.536 & 0.268 & 0.363 & 0.267 & 0.343 & 0.477 & 0.567 \\
-                 Adjusted $R^2$ & 0.516 & 0.392 & 0.095 & 0.187 & 0.081 & 0.198 & 0.368 & 0.428 \\
-                 Residual Std. Error & 188.826 (df=26) & 363.704 (df=42) & 411.759 (df=55) & 250.551 (df=47) & 455.710 (df=51) & 178.763 (df=59) & 325.047 (df=62) & 342.461 (df=332) \\
-                 F Statistic & 4.193$^{***}$ (df=13; 26) & 3.732$^{***}$ (df=13; 42) & 1.547$^{}$ (df=13; 55) & 2.060$^{**}$ (df=13; 47) & 1.432$^{}$ (df=13; 51) & 2.365$^{**}$ (df=13; 59) & 4.353$^{***}$ (df=13; 62) & 4.066$^{***}$ (df=107; 332) \\
+                 $R^2$ & 0.675 & 0.499 & 0.264 & 0.302 & 0.100 & 0.294 & 0.417 & 0.553 \\
+                 Adjusted $R^2$ & 0.562 & 0.387 & 0.137 & 0.162 & -0.067 & 0.180 & 0.327 & 0.414 \\
+                 Residual Std. Error & 179.479 (df=29) & 365.156 (df=45) & 402.134 (df=58) & 254.369 (df=50) & 490.971 (df=54) & 180.728 (df=62) & 335.236 (df=65) & 346.511 (df=335) \\
+                 F Statistic & 6.011$^{***}$ (df=10; 29) & 4.479$^{***}$ (df=10; 45) & 2.075$^{**}$ (df=10; 58) & 2.158$^{**}$ (df=10; 50) & 0.598$^{}$ (df=10; 54) & 2.581$^{**}$ (df=10; 62) & 4.649$^{***}$ (df=10; 65) & 3.983$^{***}$ (df=104; 335) \\
                 \hline
                 \hline \\[-1.8ex]
                 \textit{Note:} & \multicolumn{8}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\
                 \end{tabular}
         }
         \end{table}
+        \small
+        \begin{block}{Relationship changes from year to-year}
+            \begin{itemize}
+                \item 2009 is a significant outlier (coefficients now positive than negative, probably due to recession)
+                \item Panel methods may ``average out'' the variations in relationship
+                \item High variance in $R^2$ suggest that importance of controls, variables of interest may also not be constant
+            \end{itemize}
+        \end{block}
         
+\end{frame}
+
+\begin{frame}{PISA panel regression}{Without imputation}
+    \begin{table}[!htbp] \centering
+        \resizebox{\linewidth}{!} {
+            \begin{tabular}{@{\extracolsep{5pt}}lcccc}
+                \\[-1.8ex]\hline
+                \hline \\[-1.8ex]
+                & \multicolumn{4}{c}{\textit{Dependent variable: GDP Per Capita Growth (bps)}} \
+                \cr \cline{2-5}
+                \\[-1.8ex] & \multicolumn{1}{c}{Model 1 (base)} & \multicolumn{1}{c}{Model 2} & \multicolumn{1}{c}{Model 3 (Time FE)} & \multicolumn{1}{c}{Model 4 (Time + Entity FE)}  \\
+                \hline \\[-1.8ex]
+                 PISA Math in global P99 & -31.228$^{*}$ & 5.985$^{}$ & 8.659$^{}$ & 25.421$^{}$ \\
+                & (16.314) & (22.468) & (21.493) & (84.291) \\
+                 IMO score per log population & 10.674$^{*}$ & 6.824$^{}$ & 12.529$^{}$ & 50.506$^{}$ \\
+                & (6.363) & (9.440) & (8.631) & (32.187) \\
+                 ARWU insitutions & -166.641$^{**}$ & -190.750$^{}$ & -249.208$^{**}$ & -454.384$^{}$ \\
+                & (68.800) & (127.229) & (116.476) & (351.559) \\
+                 Time Effects & No & No & Yes & Yes \\
+                 Fixed Effects & No & No & No & Yes \\
+                 Controls & No & Yes & Yes & Yes \\
+                \hline \\[-1.8ex]
+                 Observations & 440 & 112 & 112 & 112 \\
+                 $R^2$ & 0.037 & 0.204 & 0.383 & 0.715 \\
+                 Adjusted $R^2$ & 0.031 & 0.125 & 0.294 & 0.355 \\
+                 Residual Std. Error & 445.700 (df=436) & 236.761 (df=101) & 212.750 (df=97) & 203.207 (df=49) \\
+                 F Statistic & 5.616$^{***}$ (df=3; 436) & 2.587$^{***}$ (df=10; 101) & 4.294$^{***}$ (df=14; 97) & 1.987$^{***}$ (df=62; 49) \\
+                \hline
+                \hline \\[-1.8ex]
+                \textit{Note:} & \multicolumn{4}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\
+                \end{tabular}
+        }
+        \end{table}
+        \small
+        \begin{itemize}
+            \item Relationships are very different from imputed version
+            \item Some countries are missing in this regression and some years as well
+            \item School completion rates are only available for certain years and we have seen the relationship to be volatile year-to-year
+        \end{itemize}
 \end{frame}
 
 % \begin{frame}
@@ -410,22 +398,22 @@
 \begin{frame}{Interpretation}
     \begin{block}{IMO Scores}
         \begin{itemize}
-            \item Mostly indicates positive main relationship with GDP per capita growth, but negative interaction with GDP per capita.
-            \item Suggests that lower income countries may see more benefit to what IMO scores are a proxy of (non-causal)
+            \item Mostly indicates positive main relationship with GDP per capita growth (large standard errors)
+            \item Negative relationship when fixed effects are included, volatile between years
         \end{itemize}
     \end{block}
 
     \begin{block}{PISA math 99 percentile share}
         \begin{itemize}
-            \item Very sensitive to model specification and changes between years
-            \item Negative main effect but positive interaction effect
+            \item Generally negative relationship with GDP per capita growth
+            \item Negative relationship when fixed effects are included, volatile between years
         \end{itemize}
     \end{block}
 
     \begin{block}{ARWU insitutions per million}
         \begin{itemize}
-            \item Consistent negative main effect, but positive interaction effect with GDP per capita
-            \item Can interpret as OVB, or that higher income countries may see more use from high-ranking institutions
+            \item Consistent negative relationship found in regression
+            \item To some degree volatile between years, but is most consistent
         \end{itemize}
     \end{block}
     
@@ -477,5 +465,53 @@
     \centering
     \includegraphics[width=\textwidth]{../charts/relationships-gdp-pc.png}
 \end{frame}
+
+\begin{frame}{Appendix: Summary Statistics}
+    \begin{table}
+        \caption{Summary Statistics}
+        \resizebox{\linewidth}{!} {
+            \begin{tabular}{lrrrrr}
+                & Count & Mean & Std & Min & Max \\
+                \\[-1.8ex]\hline
+                \hline \\[-1.8ex]
+               GDP per capita & 441.00 & 28463.99 & 25255.10 & 543.11 & 149461.79 \\
+               GDP per capita growth (bps) & 440.00 & 169.06 & 452.68 & -2292.68 & 3303.05 \\
+               EIU Democracy Index & 441.00 & 7.25 & 1.77 & 1.93 & 9.93 \\
+               Primary Completion & 441.00 & 90.00 & 10.25 & 51.35 & 101.95 \\
+               Lower Sec. Completion & 441.00 & 77.89 & 17.14 & 29.21 & 101.97 \\
+               Upper Sec. Completion & 441.00 & 62.20 & 18.48 & 18.44 & 97.40 \\
+               Population & 441.00 & 35318600.19 & 59445620.16 & 34000.00 & 333287557.00 \\
+               ARWU per million pop ranked & 441.00 & 0.26 & 0.33 & 0.00 & 1.54 \\
+               IMO score per log pop & 441.00 & 4.72 & 3.49 & 0.00 & 11.79 \\
+               PISA math in global 1\% & 441.00 & 0.94 & 1.46 & 0.00 & 14.64 \\
+               PISA math & 441.00 & 461.93 & 56.23 & 315.96 & 574.66 \\
+               \end{tabular}
+        }
+    \end{table}
+    \begin{table}
+        \tiny
+        \caption{Pre-imputation Statistics}
+        \begin{tabular}{lrrrrr}
+         & Count & Mean & Std & Min & Max \\
+         \\[-1.8ex]\hline
+         \hline \\[-1.8ex]
+        EIU Democracy Index & 323.00 & 7.09 & 1.78 & 1.93 & 9.93 \\
+        Primary Completion & 157.00 & 90.29 & 10.31 & 51.35 & 100.00 \\
+        Lower Sec. Completion & 179.00 & 76.63 & 20.03 & 29.21 & 99.98 \\
+        Upper Sec. Completion & 198.00 & 62.32 & 20.58 & 18.44 & 97.40 \\
+        \end{tabular}
+        \end{table}
+\end{frame}
+
+\begin{frame}{Appendix: Imputation results}{School completion rates}
+    \centering
+    \includegraphics[width=\textwidth]{../build/xgboost.png}
+\end{frame}
+
+\begin{frame}{Appendix: Imputation results}{EIU Democracy Score}
+    \centering
+    \includegraphics[width=\textwidth]{../build/eiu_xgboost.png}
+\end{frame}
+
 
 \end{document}
