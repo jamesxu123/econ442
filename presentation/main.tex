@@ -380,7 +380,7 @@
     
 \end{frame}
 
-\begin{frame}{Limitations: data problems}
+\begin{frame}{Limitations}
     Regression results do not present a clear picture of the existence of a statistical relationship between elite indicators and economic growth.
     \begin{block}{Little variation in data}
         \begin{itemize}
@@ -389,28 +389,33 @@
         \end{itemize}
     \end{block}
 
-    \begin{block}{Model specification matters}
+    \begin{block}{Missing data}
         \begin{itemize}
-            \item Including entity fixed effects a significant difference versus time effects (likely due to above)
-            \item Large variation in $IMO, math99$ between time effects, fixed effects, panel models
-            \item Missing data (only post-2006 EIU Democracy index scores, missing school completion rates)
-            \begin{itemize}
-                \item XGBoost is used to fill in this data as controls are somewhat stable year-to-year, but this is not perfect
-            \end{itemize}
+            \item XGBoost imputation is not perfect and it may have introduced bias
         \end{itemize}
-
     \end{block}
+
+    \begin{block}{Reverse causality and timelines}
+        \begin{itemize}
+            \item Countries which grow faster may try and solidify the growth by pushing for academic exellence
+            \item Lagged regression should be considered; it is not clear elite students in time $t$ have an immediate effect
+        \end{itemize}
+    \end{block}
+    
     
 \end{frame}
 
-\begin{frame}{Limitations: Yearly vs. Panel}{Significant year-to-year variation}
-    \begin{block}{Unstable panel vs. yearly results}
+\begin{frame}{Limitations}{Regression framework concerns}
+    \begin{block}{Unstable panel compared to yearly results}
         The panel methods mask some of the year-to-year changes in relationships.
-        Some indicators are more stable than others, but $math99$ in particular alternates from positive to negative coefficient with large swings.
     \end{block}
 
     \begin{block}{Omitted Variable Bias}
         Large changes in relationship magnitude and direction suggests that omitted variable bias is a big problem.
+    \end{block}
+
+    \begin{block}{Heterogeneity}
+        No time for this today, but I have other models which include interactions to examine this. Highly possible richer/poorer countries experience different effects.
     \end{block}
     
     
