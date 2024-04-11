@@ -37,14 +37,14 @@
     \begin{block}{Does elite performance matters in education and human capital?}
         \begin{itemize}
             \item Rough measures of human capital such as school enrollment rate, are often used (e.g. Mankiw-Romer-Weil)
-            \item Elite students and top university research may give countries a technology advantage
+            \item Elite students and top university research may give countries a human capital and/or research advantage
         \end{itemize}
     \end{block}
 
     \begin{block}{Implications for economic convergence}
         \begin{itemize}
-            \item Richer, larger countries will likely have better research output and universities
-            \item Technology and trade conflict between China-US have shown that ``hoarding'' technology may widen gap between nations
+            \item Richer, larger countries have better research output and universities
+            \item Rise of outsourcing, technology sanctions indicate increasing importance of human capital
         \end{itemize}
         
     \end{block}
@@ -192,17 +192,17 @@
 \end{frame}
 \subsection{Summary}
 
-\begin{frame}{Rationale for variables}
+\begin{frame}{Rationale for variables}{What is defined as ``elite''?}
     \begin{block}{IMO Scores}
-        Indicator for a country's (and region's) ability to develop/identify pinncale STEM talent at high school level.
+        Indicator for a country's (and region's) ability to develop and identify pinncale STEM talent at high school level. Requires students to take it seriously.
     \end{block}
 
     \begin{block}{ARWU Rankings}
         Indicator for a country's (and region's) ability to produce exellence in research output.
     \end{block}
 
-    \begin{block}{Percent in PISA 99th percentile}
-        When controlling for average PISA math scores, this is a partial indicator for whether general excellence in academics is encouraged/necessary.
+    \begin{block}{\% in PISA 99th percentile}
+        Average scores are controlled for, so this indicates degree of right skew and wider academic culture.
     \end{block}
 \end{frame}
 
@@ -218,7 +218,7 @@
     \] for country/region $i$ in year $t$.
     For control variables, $I_{i, t}$ is the matrix of variables and $\alpha$ is coefficients.
     \begin{equation}
-        Y_{i, t} = \beta_0 + \lambda E_{i, t} + \delta GDPpc \times E_{i,t} + \alpha I_{i, t} + T_t + C_i + \epsilon_{i, t}
+        Y_{i, t} = \beta_0 + \lambda E_{i, t} + \alpha I_{i, t} + T_t + C_i + \epsilon_{i, t}
     \end{equation}
     where $T,C$ represent time and entity dummies respectively and $Y_{i,t}$ be the GDP per capita growth in basis points for a country/region $i$ and year $t$.
     \textbf{Controls: school completion rates, GDP per capita, PISA average math score, democracy index}
@@ -306,45 +306,6 @@
             \end{itemize}
         \end{block}
         
-\end{frame}
-
-\begin{frame}{PISA panel regression}{Without imputation}
-    \begin{table}[!htbp] \centering
-        \resizebox{\linewidth}{!} {
-            \begin{tabular}{@{\extracolsep{5pt}}lcccc}
-                \\[-1.8ex]\hline
-                \hline \\[-1.8ex]
-                & \multicolumn{4}{c}{\textit{Dependent variable: GDP Per Capita Growth (bps)}} \
-                \cr \cline{2-5}
-                \\[-1.8ex] & \multicolumn{1}{c}{Model 1 (base)} & \multicolumn{1}{c}{Model 2} & \multicolumn{1}{c}{Model 3 (Time FE)} & \multicolumn{1}{c}{Model 4 (Time + Entity FE)}  \\
-                \hline \\[-1.8ex]
-                 PISA Math in global P99 & -31.228$^{*}$ & 5.985$^{}$ & 8.659$^{}$ & 25.421$^{}$ \\
-                & (16.314) & (22.468) & (21.493) & (84.291) \\
-                 IMO score per log population & 10.674$^{*}$ & 6.824$^{}$ & 12.529$^{}$ & 50.506$^{}$ \\
-                & (6.363) & (9.440) & (8.631) & (32.187) \\
-                 ARWU insitutions & -166.641$^{**}$ & -190.750$^{}$ & -249.208$^{**}$ & -454.384$^{}$ \\
-                & (68.800) & (127.229) & (116.476) & (351.559) \\
-                 Time Effects & No & No & Yes & Yes \\
-                 Fixed Effects & No & No & No & Yes \\
-                 Controls & No & Yes & Yes & Yes \\
-                \hline \\[-1.8ex]
-                 Observations & 440 & 112 & 112 & 112 \\
-                 $R^2$ & 0.037 & 0.204 & 0.383 & 0.715 \\
-                 Adjusted $R^2$ & 0.031 & 0.125 & 0.294 & 0.355 \\
-                 Residual Std. Error & 445.700 (df=436) & 236.761 (df=101) & 212.750 (df=97) & 203.207 (df=49) \\
-                 F Statistic & 5.616$^{***}$ (df=3; 436) & 2.587$^{***}$ (df=10; 101) & 4.294$^{***}$ (df=14; 97) & 1.987$^{***}$ (df=62; 49) \\
-                \hline
-                \hline \\[-1.8ex]
-                \textit{Note:} & \multicolumn{4}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\
-                \end{tabular}
-        }
-        \end{table}
-        \small
-        \begin{itemize}
-            \item Relationships are very different from imputed version
-            \item Some countries are missing in this regression and some years as well
-            \item School completion rates are only available for certain years and we have seen the relationship to be volatile year-to-year
-        \end{itemize}
 \end{frame}
 
 % \begin{frame}
@@ -512,6 +473,46 @@
     \centering
     \includegraphics[width=\textwidth]{../build/eiu_xgboost.png}
 \end{frame}
+
+\begin{frame}{Appendix: PISA panel regression}{Without imputation}
+    \begin{table}[!htbp] \centering
+        \resizebox{\linewidth}{!} {
+            \begin{tabular}{@{\extracolsep{5pt}}lcccc}
+                \\[-1.8ex]\hline
+                \hline \\[-1.8ex]
+                & \multicolumn{4}{c}{\textit{Dependent variable: GDP Per Capita Growth (bps)}} \
+                \cr \cline{2-5}
+                \\[-1.8ex] & \multicolumn{1}{c}{Model 1 (base)} & \multicolumn{1}{c}{Model 2} & \multicolumn{1}{c}{Model 3 (Time FE)} & \multicolumn{1}{c}{Model 4 (Time + Entity FE)}  \\
+                \hline \\[-1.8ex]
+                 PISA Math in global P99 & -31.228$^{*}$ & 5.985$^{}$ & 8.659$^{}$ & 25.421$^{}$ \\
+                & (16.314) & (22.468) & (21.493) & (84.291) \\
+                 IMO score per log population & 10.674$^{*}$ & 6.824$^{}$ & 12.529$^{}$ & 50.506$^{}$ \\
+                & (6.363) & (9.440) & (8.631) & (32.187) \\
+                 ARWU insitutions & -166.641$^{**}$ & -190.750$^{}$ & -249.208$^{**}$ & -454.384$^{}$ \\
+                & (68.800) & (127.229) & (116.476) & (351.559) \\
+                 Time Effects & No & No & Yes & Yes \\
+                 Fixed Effects & No & No & No & Yes \\
+                 Controls & No & Yes & Yes & Yes \\
+                \hline \\[-1.8ex]
+                 Observations & 440 & 112 & 112 & 112 \\
+                 $R^2$ & 0.037 & 0.204 & 0.383 & 0.715 \\
+                 Adjusted $R^2$ & 0.031 & 0.125 & 0.294 & 0.355 \\
+                 Residual Std. Error & 445.700 (df=436) & 236.761 (df=101) & 212.750 (df=97) & 203.207 (df=49) \\
+                 F Statistic & 5.616$^{***}$ (df=3; 436) & 2.587$^{***}$ (df=10; 101) & 4.294$^{***}$ (df=14; 97) & 1.987$^{***}$ (df=62; 49) \\
+                \hline
+                \hline \\[-1.8ex]
+                \textit{Note:} & \multicolumn{4}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\
+                \end{tabular}
+        }
+        \end{table}
+        \small
+        \begin{itemize}
+            \item Relationships are very different from imputed version
+            \item Some countries are missing in this regression and some years as well
+            \item School completion rates are only available for certain years and we have seen the relationship to be volatile year-to-year
+        \end{itemize}
+\end{frame}
+
 
 
 \end{document}
