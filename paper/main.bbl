@@ -67,6 +67,48 @@
       \verb https://papers.ssrn.com/abstract=2540166
       \endverb
     \endentry
+    \entry{10.1257/aer.90.4.847}{article}{}
+      \name{author}{2}{}{%
+        {{hash=960d8816892f54818afdd199f6b82e43}{%
+           family={Burnside},
+           familyi={B\bibinitperiod},
+           given={Craig},
+           giveni={C\bibinitperiod}}}%
+        {{hash=5401b9da3d2bb1bb3f22ed923f7e5261}{%
+           family={Dollar},
+           familyi={D\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{c36dc4132735ad36c73462b72af3c1c6}
+      \strng{fullhash}{c36dc4132735ad36c73462b72af3c1c6}
+      \strng{bibnamehash}{c36dc4132735ad36c73462b72af3c1c6}
+      \strng{authorbibnamehash}{c36dc4132735ad36c73462b72af3c1c6}
+      \strng{authornamehash}{c36dc4132735ad36c73462b72af3c1c6}
+      \strng{authorfullhash}{c36dc4132735ad36c73462b72af3c1c6}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{American Economic Review}
+      \field{month}{9}
+      \field{number}{4}
+      \field{title}{Aid, Policies, and Growth}
+      \field{volume}{90}
+      \field{year}{2000}
+      \true{nocite}
+      \field{pages}{847\bibrangedash 868}
+      \range{pages}{22}
+      \verb{doi}
+      \verb 10.1257/aer.90.4.847
+      \endverb
+      \verb{urlraw}
+      \verb https://www.aeaweb.org/articles?id=10.1257/aer.90.4.847
+      \endverb
+      \verb{url}
+      \verb https://www.aeaweb.org/articles?id=10.1257/aer.90.4.847
+      \endverb
+    \endentry
     \entry{Hanushek_Woessmann_2010}{book}{}
       \name{author}{2}{}{%
         {{hash=ab739a255c8b5c754c14f9fa8eefafdf}{%
