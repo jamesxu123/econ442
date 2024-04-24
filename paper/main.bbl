@@ -16,5 +16,430 @@
   {}
 \endgroup
 
+
+\refsection{0}
+  \datalist[entry]{cms/global//global/global}
+    \entry{bloom2014highereducation}{article}{}
+      \name{author}{4}{}{%
+        {{hash=67ad7404270fbd6fb700d3b8c5de719b}{%
+           family={Bloom},
+           familyi={B\bibinitperiod},
+           given={David\bibnamedelima E.},
+           giveni={D\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+        {{hash=dbcc0a44bd923bf94cbdbe2053fd8d83}{%
+           family={Canning},
+           familyi={C\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+        {{hash=14a12252ccd55015c2ac811c658dc606}{%
+           family={Chan},
+           familyi={C\bibinitperiod},
+           given={Kevin\bibnamedelima J.},
+           giveni={K\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=97dc600e4782e1db76034e87db8b1d5f}{%
+           family={Luca},
+           familyi={L\bibinitperiod},
+           given={Dara\bibnamedelima Lee},
+           giveni={D\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+      }
+      \strng{namehash}{ab9e8e7cbf8508dcc25504babacb5274}
+      \strng{fullhash}{cb8cee5d911a6346310734966f0442c1}
+      \strng{bibnamehash}{cb8cee5d911a6346310734966f0442c1}
+      \strng{authorbibnamehash}{cb8cee5d911a6346310734966f0442c1}
+      \strng{authornamehash}{ab9e8e7cbf8508dcc25504babacb5274}
+      \strng{authorfullhash}{cb8cee5d911a6346310734966f0442c1}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{International Journal of African Higher Education}
+      \field{number}{1}
+      \field{title}{Higher Education and Economic Growth in Africa}
+      \field{volume}{1}
+      \field{year}{2014}
+      \true{nocite}
+      \field{pages}{22\bibrangedash 57}
+      \range{pages}{36}
+      \verb{urlraw}
+      \verb https://papers.ssrn.com/abstract=2540166
+      \endverb
+      \verb{url}
+      \verb https://papers.ssrn.com/abstract=2540166
+      \endverb
+    \endentry
+    \entry{Hanushek_Woessmann_2010}{book}{}
+      \name{author}{2}{}{%
+        {{hash=ab739a255c8b5c754c14f9fa8eefafdf}{%
+           family={Hanushek},
+           familyi={H\bibinitperiod},
+           given={Eric\bibnamedelima A.},
+           giveni={E\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=361a596c6528809c0f2d27d34ff3ec42}{%
+           family={Woessmann},
+           familyi={W\bibinitperiod},
+           given={Ludger},
+           giveni={L\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {OECD}%
+      }
+      \strng{namehash}{321a9fc3f0f384582081b2f7992089e6}
+      \strng{fullhash}{321a9fc3f0f384582081b2f7992089e6}
+      \strng{bibnamehash}{321a9fc3f0f384582081b2f7992089e6}
+      \strng{authorbibnamehash}{321a9fc3f0f384582081b2f7992089e6}
+      \strng{authornamehash}{321a9fc3f0f384582081b2f7992089e6}
+      \strng{authorfullhash}{321a9fc3f0f384582081b2f7992089e6}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{The high cost of low educational performance: The long-run economic impact of improving Pisa outcomes}
+      \field{year}{2010}
+      \true{nocite}
+    \endentry
+    \entry{Henseke2009Country}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=9a0305a90b58aa3d76e5f2d0558251f2}{%
+           family={Henseke},
+           familyi={H\bibinitperiod},
+           given={Golo},
+           giveni={G\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {eng}%
+      }
+      \list{location}{1}{%
+        {Rostock}%
+      }
+      \list{publisher}{1}{%
+        {Universität Rostock, Institut für Volkswirtschaftslehre}%
+      }
+      \strng{namehash}{9a0305a90b58aa3d76e5f2d0558251f2}
+      \strng{fullhash}{9a0305a90b58aa3d76e5f2d0558251f2}
+      \strng{bibnamehash}{9a0305a90b58aa3d76e5f2d0558251f2}
+      \strng{authorbibnamehash}{9a0305a90b58aa3d76e5f2d0558251f2}
+      \strng{authornamehash}{9a0305a90b58aa3d76e5f2d0558251f2}
+      \strng{authorfullhash}{9a0305a90b58aa3d76e5f2d0558251f2}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{This study seeks to explain country differences in the performance at the International Mathematical Olympiad. Hypotheses on the relationship between, on one hand, performance at the Olympiads and, on the other, population size and dynamics, economic resources, human capital, schooling quantity and quality, and the political regime are tested with a panel dataset of 97 countries over the period 1993-2006. The analysis distinguishes between crosscountry differences and intra-country differences. Results indicate that macro-conditions explain cross-country differences well but fail to predict changes in performance over time. Thus, long-term differences in country characteristics are associated with the average performance of Olympians.}
+      \field{number}{108}
+      \field{series}{Thünen-Series of Applied Economic Theory - Working Paper}
+      \field{title}{Country performance at the International Mathematical Olympiad}
+      \field{year}{2009}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://hdl.handle.net/10419/39771
+      \endverb
+      \verb{url}
+      \verb https://hdl.handle.net/10419/39771
+      \endverb
+      \keyw{I21; H52; J24; 330; Science Olympiads; Talent in mathematics; Country panel; PISA; Hochqualifizierte Arbeitskräfte; Mathematik; Bildungsniveau; Standortfaktor; Makroökonomischer Einfluss}
+    \endentry
+    \entry{023a5373-9171-3189-8973-cd071dc99bc7}{article}{}
+      \name{author}{2}{}{%
+        {{hash=bac6cbc4cf47fa3c755e00204887053f}{%
+           family={Krishna},
+           familyi={K\bibinitperiod},
+           given={Anirudh},
+           giveni={A\bibinitperiod}}}%
+        {{hash=03c6520609106688f6a8263380b3165e}{%
+           family={Haglund},
+           familyi={H\bibinitperiod},
+           given={Eric},
+           giveni={E\bibinitperiod}}}%
+      }
+      \list{publisher}{2}{%
+        {Economic}%
+        {Political Weekly}%
+      }
+      \strng{namehash}{4209ffa8680de3868a6f344f6e22804f}
+      \strng{fullhash}{4209ffa8680de3868a6f344f6e22804f}
+      \strng{bibnamehash}{4209ffa8680de3868a6f344f6e22804f}
+      \strng{authorbibnamehash}{4209ffa8680de3868a6f344f6e22804f}
+      \strng{authornamehash}{4209ffa8680de3868a6f344f6e22804f}
+      \strng{authorfullhash}{4209ffa8680de3868a6f344f6e22804f}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Not everyone in our country has equal access to competitive sports. Many are not effective participants on account of ignorance or disinterest, disability or deterrence. This analysis considers two separate arenas for enlarging the pool of effective participants, one related to sports and other to social mobility. In both cases, this paper finds the plausibility of an explanation based on effective participation rates. It examines what country characteristics are associated with greater success in the Olympics at the macro level by considering indicators such as health, education, and especially three variables of information and access (road length per unit of land area, the share of urban population and radios per capita). It also analyses the opportunities and achievements in the villages of two states, Karnataka and Rajasthan.}
+      \field{issn}{00129976, 23498846}
+      \field{journaltitle}{Economic and Political Weekly}
+      \field{number}{28}
+      \field{title}{Why Do Some Countries Win More Olympic Medals? Lessons for Social Mobility and Poverty Reduction}
+      \field{urlday}{24}
+      \field{urlmonth}{4}
+      \field{urlyear}{2024}
+      \field{volume}{43}
+      \field{year}{2008}
+      \field{urldateera}{ce}
+      \true{nocite}
+      \field{pages}{143\bibrangedash 151}
+      \range{pages}{9}
+      \verb{urlraw}
+      \verb http://www.jstor.org/stable/40277720
+      \endverb
+      \verb{url}
+      \verb http://www.jstor.org/stable/40277720
+      \endverb
+    \endentry
+    \entry{10.2307/2118477}{article}{}
+      \name{author}{3}{}{%
+        {{hash=474cb51282bc298228df113afdfd755f}{%
+           family={Mankiw},
+           familyi={M\bibinitperiod},
+           given={N.\bibnamedelimi Gregory},
+           giveni={N\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+        {{hash=195992cee97f71c78cff99d54d74edbd}{%
+           family={Romer},
+           familyi={R\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+        {{hash=f50e81634a8bede26e13b8343c2ab466}{%
+           family={Weil},
+           familyi={W\bibinitperiod},
+           given={David\bibnamedelima N.},
+           giveni={D\bibinitperiod\bibinitdelim N\bibinitperiod}}}%
+      }
+      \strng{namehash}{1ab6b360ea7099ff84dd394cc27f67c1}
+      \strng{fullhash}{1ab6b360ea7099ff84dd394cc27f67c1}
+      \strng{bibnamehash}{1ab6b360ea7099ff84dd394cc27f67c1}
+      \strng{authorbibnamehash}{1ab6b360ea7099ff84dd394cc27f67c1}
+      \strng{authornamehash}{1ab6b360ea7099ff84dd394cc27f67c1}
+      \strng{authorfullhash}{1ab6b360ea7099ff84dd394cc27f67c1}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{{This paper examines whether the Solow growth model is consistent with the international variation in the standard of living. It shows that an augmented Solow model that includes accumulation of human as well as physical capital provides an excellent description of the cross-country data. The paper also examines the implications of the Solow model for convergence in standards of living, that is, for whether poor countries tend to grow faster than rich countries. The evidence indicates that, holding population growth and capital accumulation constant, countries converge at about the rate the augmented Solow model predicts.}}
+      \field{issn}{0033-5533}
+      \field{journaltitle}{The Quarterly Journal of Economics}
+      \field{month}{05}
+      \field{number}{2}
+      \field{title}{{A Contribution to the Empirics of Economic Growth*}}
+      \field{volume}{107}
+      \field{year}{1992}
+      \true{nocite}
+      \field{pages}{407\bibrangedash 437}
+      \range{pages}{31}
+      \verb{doi}
+      \verb 10.2307/2118477
+      \endverb
+      \verb{eprint}
+      \verb https://academic.oup.com/qje/article-pdf/107/2/407/5203024/107-2-407.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.2307/2118477
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.2307/2118477
+      \endverb
+    \endentry
+    \entry{MORETTI2004175}{article}{}
+      \name{author}{1}{}{%
+        {{hash=f58347226b88750723f89cb2b99cd2e9}{%
+           family={Moretti},
+           familyi={M\bibinitperiod},
+           given={Enrico},
+           giveni={E\bibinitperiod}}}%
+      }
+      \strng{namehash}{f58347226b88750723f89cb2b99cd2e9}
+      \strng{fullhash}{f58347226b88750723f89cb2b99cd2e9}
+      \strng{bibnamehash}{f58347226b88750723f89cb2b99cd2e9}
+      \strng{authorbibnamehash}{f58347226b88750723f89cb2b99cd2e9}
+      \strng{authornamehash}{f58347226b88750723f89cb2b99cd2e9}
+      \strng{authorfullhash}{f58347226b88750723f89cb2b99cd2e9}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0304-4076}
+      \field{journaltitle}{Journal of Econometrics}
+      \field{note}{Higher education (Annals issue)}
+      \field{number}{1}
+      \field{title}{Estimating the social return to higher education: evidence from longitudinal and repeated cross-sectional data}
+      \field{volume}{121}
+      \field{year}{2004}
+      \true{nocite}
+      \field{pages}{175\bibrangedash 212}
+      \range{pages}{38}
+      \verb{doi}
+      \verb https://doi.org/10.1016/j.jeconom.2003.10.015
+      \endverb
+      \verb{urlraw}
+      \verb https://www.sciencedirect.com/science/article/pii/S0304407603002653
+      \endverb
+      \verb{url}
+      \verb https://www.sciencedirect.com/science/article/pii/S0304407603002653
+      \endverb
+      \keyw{Education,Externalities,Spillovers,Wages}
+    \endentry
+    \entry{19336}{article}{}
+      \name{author}{3}{}{%
+        {{hash=2459a19cc6b1187b64ff667577c741d9}{%
+           family={Murphy},
+           familyi={M\bibinitperiod},
+           given={Kevin.\bibnamedelimi M.},
+           giveni={K\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=73d7bf2d3105674f373111fc7356eec3}{%
+           family={Shleifer},
+           familyi={S\bibinitperiod},
+           given={Andrei},
+           giveni={A\bibinitperiod}}}%
+        {{hash=a1ba02aecca1ef85adf51c4af4c81a9e}{%
+           family={Vishny},
+           familyi={V\bibinitperiod},
+           given={Robert\bibnamedelima W.},
+           giveni={R\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+      }
+      \strng{namehash}{3462f78036e3da02b90e5c84b9831915}
+      \strng{fullhash}{3462f78036e3da02b90e5c84b9831915}
+      \strng{bibnamehash}{3462f78036e3da02b90e5c84b9831915}
+      \strng{authorbibnamehash}{3462f78036e3da02b90e5c84b9831915}
+      \strng{authornamehash}{3462f78036e3da02b90e5c84b9831915}
+      \strng{authorfullhash}{3462f78036e3da02b90e5c84b9831915}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Quarterly Journal of Economics}
+      \field{note}{Reprinted in Simon C. Parker, ed., The Economics of Entrepreneurship, Edward Elgar Publishing Company, 2006. Reprinted in T. Beck, ed., Entrepreneurship in Developing Countries, Edward Elgar Publishing Company, 2009.}
+      \field{number}{2}
+      \field{title}{The Allocation of Talent: Implications for Growth}
+      \field{volume}{106}
+      \field{year}{1991}
+      \true{nocite}
+      \field{pages}{503\bibrangedash 530}
+      \range{pages}{28}
+    \endentry
+    \entry{a2ea89c0-09a2-3a83-b2d9-ce2350096a3e}{article}{}
+      \name{author}{1}{}{%
+        {{hash=9ad40576acffeb7d769dc8b41f375d2b}{%
+           family={Rosen},
+           familyi={R\bibinitperiod},
+           given={Sherwin},
+           giveni={S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {American Economic Association}%
+      }
+      \strng{namehash}{9ad40576acffeb7d769dc8b41f375d2b}
+      \strng{fullhash}{9ad40576acffeb7d769dc8b41f375d2b}
+      \strng{bibnamehash}{9ad40576acffeb7d769dc8b41f375d2b}
+      \strng{authorbibnamehash}{9ad40576acffeb7d769dc8b41f375d2b}
+      \strng{authornamehash}{9ad40576acffeb7d769dc8b41f375d2b}
+      \strng{authorfullhash}{9ad40576acffeb7d769dc8b41f375d2b}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{00028282}
+      \field{journaltitle}{The American Economic Review}
+      \field{number}{5}
+      \field{title}{The Economics of Superstars}
+      \field{urlday}{24}
+      \field{urlmonth}{4}
+      \field{urlyear}{2024}
+      \field{volume}{71}
+      \field{year}{1981}
+      \field{urldateera}{ce}
+      \true{nocite}
+      \field{pages}{845\bibrangedash 858}
+      \range{pages}{14}
+      \verb{urlraw}
+      \verb http://www.jstor.org/stable/1803469
+      \endverb
+      \verb{url}
+      \verb http://www.jstor.org/stable/1803469
+      \endverb
+    \endentry
+    \entry{149fed66-01cd-312b-8fe7-7522fa8e5c0c}{article}{}
+      \name{author}{1}{}{%
+        {{hash=aae176b15837266834493c7397512929}{%
+           family={Spence},
+           familyi={S\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Oxford University Press}%
+      }
+      \strng{namehash}{aae176b15837266834493c7397512929}
+      \strng{fullhash}{aae176b15837266834493c7397512929}
+      \strng{bibnamehash}{aae176b15837266834493c7397512929}
+      \strng{authorbibnamehash}{aae176b15837266834493c7397512929}
+      \strng{authornamehash}{aae176b15837266834493c7397512929}
+      \strng{authorfullhash}{aae176b15837266834493c7397512929}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{I. Introduction 355.--2. Hiring as investment under uncertainty, 356.--3 Applicant signaling, 358.--4. Informational feedback and the definition of equilibrium, 359.--5. Properties of informational equilibria: An example, 361.--6. The informational impact of indices, 368.--Conclusions, 374.}
+      \field{issn}{00335533, 15314650}
+      \field{journaltitle}{The Quarterly Journal of Economics}
+      \field{number}{3}
+      \field{title}{Job Market Signaling}
+      \field{urlday}{24}
+      \field{urlmonth}{4}
+      \field{urlyear}{2024}
+      \field{volume}{87}
+      \field{year}{1973}
+      \field{urldateera}{ce}
+      \true{nocite}
+      \field{pages}{355\bibrangedash 374}
+      \range{pages}{20}
+      \verb{urlraw}
+      \verb http://www.jstor.org/stable/1882010
+      \endverb
+      \verb{url}
+      \verb http://www.jstor.org/stable/1882010
+      \endverb
+    \endentry
+    \entry{VALERO201953}{article}{}
+      \name{author}{2}{}{%
+        {{hash=25d429335606992909e9be55a4cc72e3}{%
+           family={Valero},
+           familyi={V\bibinitperiod},
+           given={Anna},
+           giveni={A\bibinitperiod}}}%
+        {{hash=e58657ab015686761da71fa173a8b00a}{%
+           family={Reenen},
+           familyi={R\bibinitperiod},
+           given={John\bibnamedelima Van},
+           giveni={J\bibinitperiod\bibinitdelim V\bibinitperiod}}}%
+      }
+      \strng{namehash}{bae30682756c80d7825a7344d9188321}
+      \strng{fullhash}{bae30682756c80d7825a7344d9188321}
+      \strng{bibnamehash}{bae30682756c80d7825a7344d9188321}
+      \strng{authorbibnamehash}{bae30682756c80d7825a7344d9188321}
+      \strng{authornamehash}{bae30682756c80d7825a7344d9188321}
+      \strng{authorfullhash}{bae30682756c80d7825a7344d9188321}
+      \field{sortinit}{V}
+      \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0272-7757}
+      \field{journaltitle}{Economics of Education Review}
+      \field{title}{The economic impact of universities: Evidence from across the globe}
+      \field{volume}{68}
+      \field{year}{2019}
+      \true{nocite}
+      \field{pages}{53\bibrangedash 67}
+      \range{pages}{15}
+      \verb{doi}
+      \verb https://doi.org/10.1016/j.econedurev.2018.09.001
+      \endverb
+      \verb{urlraw}
+      \verb https://www.sciencedirect.com/science/article/pii/S0272775718300414
+      \endverb
+      \verb{url}
+      \verb https://www.sciencedirect.com/science/article/pii/S0272775718300414
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
 \endinput
 

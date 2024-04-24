@@ -6,6 +6,8 @@
 \usepackage{booktabs}
 \usepackage{amsmath, xparse}
 \usepackage{ragged2e}
+\usepackage[notes,backend=biber]{biblatex-chicago}
+\bibliography{sample}
 
 \geometry{letterpaper, portrait, margin=1in}
 
@@ -442,4 +444,13 @@ This suggests that IMO performance may be the best proxy out of the variables an
 
 \subsection{Does IMO performance measure something else?}
 To explore whether IMO performance indeed captures a different set of unobservable factors (the cultural and institutional/structural elite orientation of an education system) compared to PISA math 99 share and ARWU institution count. Principle Components Analysis (PCA) may help analyze this by projecting the 3 variables onto 2 orthogonal vectors.
+
+\section{Limitations}
+The inconsistent results between different model specifications and high standard errors suggest that there are significant concerns with this study. I outline several key concerns below and discuss their severity.
+
+\subsection{Imputation Problems}
+As around 75\% of the school completion rates in the dataset are imputed with XGBoost, there are concerns that this may introduce bias into the dataset. First, tree-based models are prone to overfitting, so the imputed data may bias the regression. Second, the fitted values have unknown errors (as many countries never had any completion data at all). To help reduce the first concern, the training data is a superset of the regression data and includes many more countries and years. Cross validation is also used to reduce overfitting.
+\pagebreak
+\nocite{*}
+\printbibliography
 \end{document}
