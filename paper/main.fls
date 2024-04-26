@@ -526,6 +526,7 @@ INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmmi10.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmex10.tfm
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmr9.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/jknappen/ec/tcrm1095.tfm
 INPUT ../charts/wdi-count.png
@@ -533,7 +534,6 @@ INPUT ../charts/wdi-count.png
 INPUT ../charts/wdi-count.png
 INPUT ../charts/wdi-count.png
 INPUT ../charts/wdi-count.png
-INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmr9.tfm
 INPUT ../charts/eiu_2023.jpg
 INPUT ../charts/eiu_2023.jpg
 INPUT ../charts/eiu_2023.jpg
