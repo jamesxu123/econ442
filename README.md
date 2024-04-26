@@ -8,7 +8,7 @@ I discuss below the main files that are important.
 - IMO data is scraped from their website. See `imo/01_scrape_imo.ipynb`
 - `load_worldbank.ipynb` generates the parquet file from the world bank WDI CSVs
 - XGBoost code is in `build/xgboost.ipynb` (XGBoost charts also from here)
-- PCA and country dummy regression is in `build/furtehr_analysis.ipynb`
+- PCA and country dummy regression is in `build/further_analysis.ipynb`
 
 ## Regressions and Charts
 - These are all in the `charts` directory
