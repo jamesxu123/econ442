@@ -6,7 +6,7 @@ I discuss below the main files that are important.
 - `build/01_build.ipynb` is the main aggregator for all the datasets
 - ARWU data is generated using the 01-04 arwu IPYNB files in the main directory (see ARWU.md for more information)
 - `load_worldbank.ipynb` generates the parquet file from the world bank WDI CSVs
-- XGBoost code is in `build/xgboost.ipynb`
+- XGBoost code is in `build/xgboost.ipynb` (XGBoost charts also from here)
 - PCA and country dummy regression is in `build/furtehr_analysis.ipynb`
 
 ## Regressions and Charts

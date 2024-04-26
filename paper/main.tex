@@ -227,6 +227,15 @@ Separate regression for each year. Does not make the assumptions above. We modif
 \begin{equation}
     Y_{i, t} = \beta_0 + \lambda E_{i, t} + \alpha I_{i, t} + \epsilon_{i, t}
 \end{equation}
+
+\subsection{Without PISA variables}
+A larger sample of countries (with a similar specification as the panel regression above) is considered by removing the PISA variables which limit the rows available.
+This may help reduce standard errors and illustrate whether:
+\begin{itemize}
+    \item The results hold on a larger set of countries and years (minus the PISA variables)
+    \item Whether lower standard errors can be achieved
+\end{itemize}
+
 \subsection{Interpretion and goals}
 This paper does not aim to make any causal inference as it is complicated by omitted variable bias and the reality the elite academic orientation variables are merely instruments for unobservable characteristics. GDP per capita growth obviously has many contributing factors, and so a simple scatter plot (see figure \ref{fig:relationships}) is insufficient at determining whether a statistical relationship exists.
 \begin{figure}[H]
@@ -467,8 +476,24 @@ Returning to the effective participating talent pool theory, IMO performance is 
 
 This suggests that IMO performance may be the best proxy out of the variables and is likely measuring something different from the other two variables.
 
-\subsection{Does IMO performance measure something else?}
-To explore whether IMO performance indeed captures a different set of unobservable factors (the cultural and institutional/structural elite orientation of an education system) compared to PISA math 99 share and ARWU institution count. Principle Components Analysis (PCA) may help analyze this by projecting the 3 variables onto 2 orthogonal vectors.
+\subsection{Does IMO performance measure something else? (PCA)}
+To explore whether IMO performance indeed captures a different set of unobservable factors (the cultural and institutional/structural elite orientation of an education system) compared to PISA math 99 share and ARWU institution count. Principle Components Analysis (PCA) may help analyze this by projecting the 3 variables onto 2 orthogonal vectors\footnote{Scikit-learn's implementation was used}. 2 components was found to be the MLE solution. See table \ref{table:pca} for the principle axes (parallel to eigenvectors).
+\begin{table}[H]
+    \caption{Principal axes in feature space}
+    \label{table:pca}
+    \centering
+    \begin{tabular}{lrr}
+        \toprule
+         & Component A & Component B \\
+        \midrule
+        PISA math 99 & 0.126142 & 0.987521 \\
+        ARWU ranked per MM pop. & 0.000565 & 0.094978 \\
+        IMO score per log pop. & 0.992012 & -0.125625 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+These PCA results provide evidence that indeed IMO performance has captured a different set of unobservable factors (which I hypothesize include the elite orientation of an education system). The results indicate that when decompositing into 2 components, IMO score is in a separate component orthogonal to the one containing PISA math 99. ARWU ranked per MM pop. is not really a significant contributor to either.
 
 \section{Limitations}
 The inconsistent results between different model specifications and high standard errors suggest that there are significant concerns with this study. I outline several key concerns below and discuss their severity.
@@ -546,7 +571,14 @@ Comparing the panel regressions on the subset of data where all variables are av
 
 The fixed effects model with country dummies has also changed significantly, especially for the PISA math 99 variable.
 
-The relationships between the controls and the elite orientation variables are likely to have changed as the XGBoost model has to some extent forced the existence of a relationship.
+\begin{figure}[H]
+    \caption{Shapley values for upper sec. completion rates}
+    \centering
+    \includegraphics[width=0.6\textwidth]{../shap_upper_sec.png}
+    \label{fig:shap-upper-sec}
+\end{figure}
+
+The relationships between the controls and the elite orientation variables are likely to have changed as the XGBoost model has to some extent forced the existence of a relationship. For instance, it appears that IMO score is the most important feature in predicting upper secondary school completion rates using Shapley values (see figure \ref{fig:shap-upper-sec})\footnote{Shapley values can be used to help explain ML models}.
 
 Imputation using a machine learning model is novel and imperfect, but it has allowed us to expand the data available by 75\%.
 
