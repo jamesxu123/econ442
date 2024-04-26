@@ -1,11 +1,11 @@
 # Fdb version 3
-["biber main"] 1713994457 "main.bcf" "main.bbl" "main" 1713994467
-  "main.bcf" 1713994467 157311 2e78e5d92b3609410cb1eb598b3f032b "pdflatex"
-  "sample.bib" 1713994467 7298 1d3371171e5c488a58d9749e306d8a4c ""
+["biber main"] 1714074041 "main.bcf" "main.bbl" "main" 1714074049
+  "main.bcf" 1714074049 157311 2e78e5d92b3609410cb1eb598b3f032b "pdflatex"
+  "sample.bib" 1714073979 8225 5bccfac8e32c55048b6a1d181718c53f ""
   (generated)
   "main.bbl"
   "main.blg"
-["pdflatex"] 1713994464 "/Users/jamesxu/Developer/econ442/paper/main.tex" "main.pdf" "main" 1713994467
+["pdflatex"] 1714074046 "/Users/jamesxu/Developer/econ442/paper/main.tex" "main.pdf" "main" 1714074049
   "../build/eiu_xgboost.png" 1713648759 206371 802470e98b331ef3a087f313ed5da7cf ""
   "../build/total.png" 1713914854 122625 2110c4b7a006f91dfa68be24c4fa5039 ""
   "../build/xgboost.png" 1713648744 346189 9438a4f9c482c4b5d98d1caf7897a2bf ""
@@ -14,7 +14,7 @@
   "../charts/relationships.png" 1712510634 473711 5ae9eeee87eaf737b0c01b83ecade1bf ""
   "../charts/std-dev.png" 1712510694 285336 3db819caf9f9ab140a91d6c03e3860a3 ""
   "../charts/wdi-count.png" 1712510267 202212 ea2c21c5e0bcc2cd4a3d11a936c82c72 ""
-  "/Users/jamesxu/Developer/econ442/paper/main.tex" 1713994453 44020 c6378283bf056a9741ca200b25e47112 ""
+  "/Users/jamesxu/Developer/econ442/paper/main.tex" 1714074043 53903 6f2ff59e616354963dfc93304413be9e ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/jknappen/ec/tcrm1095.tfm" 1136768653 1536 02c06700a42be0f5a28664c7273f82e7 ""
@@ -110,10 +110,10 @@
   "/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1647878959 4410336 7d30a02e9fa9a16d7d1f8d037ba69641 ""
   "/usr/local/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt" 1662499459 2826436 a0bf3306bc40553f03b3db5396fcb0d4 ""
   "/usr/local/texlive/2022/texmf.cnf" 1647878952 577 209b46be99c9075fd74d4c0369380e8c ""
-  "main.aux" 1713994467 6591 5105329c52d451ff67f3f5fc8bc95648 "pdflatex"
-  "main.bbl" 1713994458 21171 412168cee0007d1d8a86ac8c09e9724c "biber main"
-  "main.run.xml" 1713994467 2349 8a73e90505ece771f3464c5ef68f1b8c "pdflatex"
-  "main.tex" 1713994453 44020 c6378283bf056a9741ca200b25e47112 ""
+  "main.aux" 1714074049 7799 09b766586d139ff99647ec11a2d43278 "pdflatex"
+  "main.bbl" 1714074043 23399 c7bee3d54efed0bd3ac961958d2d8de3 "biber main"
+  "main.run.xml" 1714074049 2349 8a73e90505ece771f3464c5ef68f1b8c "pdflatex"
+  "main.tex" 1714074043 53903 6f2ff59e616354963dfc93304413be9e ""
   (generated)
   "main.aux"
   "main.bcf"

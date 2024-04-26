@@ -21,6 +21,7 @@
 
 \section{Introduction}
 Education is a crucial factor in economic development and the progress of countries. Prior literature has found that the mean education level (and the human capital) of a country displays a strong correlation with higher wealth. Mankiw, Romer, and Weil (1992) provided an augmented Solow model where human capital is included as a factor of production. The empirical results support the assertion that education is important in growth. Hanushek and Woessmann (2010) modeled that investments in education which boost PISA scores implies significant gains in GDP. It is widely accepted that the improvement of education in developing countries is a priority with universal primary education being one of the UN Millennium Development Goals.
+
 The allocation of the talented people in a country may provide important economic effects when they work in value-generating positions (i.e. entrepreneurship) versus rent-seeking ones (Murphy et. al., 1991). Within specific industries, the development of technology has allowed superstars to dominate financially at the expense of more moderate performers (Rosen 1981). There are clear economic effects from talented individuals at a country and the same technology which made superstars rich may do the same for countries as well.
 
 However, much of prior research on the macro level has focused on the mean academic achievement. This paper investigates the relationship between the elite orientation of a country’s education system and economic growth. I define “elite orientation” as a composition of cultural and institutional factors which incentives high achievement, competition, and stratification. An education, in this context, is regarded as competition, with actual learning as a side-effect. Conceptually, this is opposed to a “standards-based orientation”, where the goal is to impart knowledge and skill to some specified benchmark.
@@ -31,7 +32,7 @@ Outside student achievement, the presence of high-performing research institutio
 
 Measuring the “elite orientation” is not trivial as it is a multidimensional attribute. This paper attempts to measure this using population-adjusted International Math Olympiad test scores, population-adjusted counts of top-ranked universities, and the share of a country’s (or region’s) students testing in the PISA top 1\% for mathematics. The rationale for including these variables as measures of elite orientation are as follows:
 
-\textit{IMO Scores} are included as it reflects the ability for a country/region to develop and identify pinnacle STEM talent at the high school level. Specifically, seeing as the competition involves selecting the 6 best students, the country performance reflects the quality of this selection. Krishna and Haglund (2008) introduced the concept of the effectively participating population which accounts for the fact that not everyone has equal access or interest to sports. This theory was found to be relevant for the IMO as well (Henseke 2009).  In the context of the IMO, after controlling for average education level (equal access), the remaining factor will consist of the level of interest. This level of interest is critical because some incentive outside of being an IMO team member must be available to incentivize the population of students to invest the effort to prepare with the hopes of becoming a team member. The unobservable incentive structures are what we hope to measure with this variable.
+\textit{IMO Scores} are included as it reflects the ability for a country/region to develop and identify pinnacle STEM talent at the high school level. Specifically, seeing as the competition involves selecting the 6 best students, the country performance reflects the quality of this selection. Krishna and Haglund (2008) introduced the concept of the effectively participating population which accounts for the fact that not everyone has equal access or interest to sports. This theory was found to be relevant for the IMO as well (Henseke 2009).  In the context of the IMO, after controlling for average education level (equal access), the remaining factor will consist of the level of interest and motivation. This level of interest is critical because some incentive outside of being an IMO team member must be available to incentivize the population of students to invest the effort to prepare with the hopes of becoming a team member (Campbell and Wu, 1996). The unobservable incentive structures are what we hope to measure with this variable.
 
 \textit{ARWU rankings} are included as it represents the number of elite research institutions a country has. The intent is for this to serve as a proxy for the competitiveness of higher education (ARWU institutions tend to have higher admission standards for undergraduate and graduate education). At the same time, producing top research may also have benefits for economic growth.
 
@@ -98,7 +99,7 @@ There is a significant missing data problem with the school completion rates. Th
 Data for school completion rates are highly limited in the subset of years/countries intersecting with PISA testing. I utilized a custom XGBoost model trained on a superset of the dataset used in this paper to impute nulls. I describe this further below in a separate section.
 
 \subsection{ARWU Rankings}
-The ARWU rankings are a set of university rankings produced previously by Shanghai Jiaotong University but by the Shanghai Ranking Consultancy now . ARWU ranks the top 1000 universities (500 before 2017).
+The ARWU rankings are a set of university rankings produced previously by Shanghai Jiaotong University but by the Shanghai Ranking Consultancy now. ARWU ranks the top 1000 universities (500 before 2017).
 
 Compared to other rankings such as Times Higher Education (THE) and Quacquarelli Symonds (QS), the ARWU rankings are more quantitative, and research focused. A university's score is determined by ``Quality of Education'' (alumni with Nobel and Fields medals), ``Quality of Faculty'' (faculty Nobel and Fields medal, highly), ``Research Output'' (Nature/Science publications, top social science papers), and ``Per Capita Performance''\footnote{This was retrieved from https://www.shanghairanking.com/methodology/arwu/2023}.
 
@@ -237,34 +238,44 @@ This paper does not aim to make any causal inference as it is complicated by omi
 By running specified regression models, we can examine the relationship while considering controls. It is clear from the picture above that we must consider this \textit{conditional} relationship. The regression coefficients on the elite orientation variables will indicate the size, direction, and significance of elite orientation condition on the controls included in the model. Comparing different model specifications will also let us examine the different assumptions made by each (e.g., time heterogeneity, within/between variation). The next section will discuss the interpretations and results with this in mind.
 \section{Results and Interpretation}
 \subsection{Panel Regressions}
-We begin by estimating the panel regression specifications given above. The results are shown below in Table \ref{table:panel}\footnote{Full coefficient results available in appendix}.
+We begin by estimating the panel regression specifications given above. The results are shown below in Table \ref{table:panel}.
 \begin{table}[H] \centering
-    \caption{Panel regression results (partial)}
+    \caption{Panel regression results}
     \label{table:panel}
     \resizebox{\linewidth}{!} {
         \begin{tabular}{@{\extracolsep{5pt}}lcccc}
             \\[-1.8ex]\hline
             \hline \\[-1.8ex]
-            & \multicolumn{4}{c}{\textit{Dependent variable: GDP Per Capita Growth (bps)}} \
-            \cr \cline{2-5}
-            \\[-1.8ex] & \multicolumn{1}{c}{Model 1 (base)} & \multicolumn{1}{c}{Model 2 (with controls)} & \multicolumn{1}{c}{Model 3 (Time FE)} & \multicolumn{1}{c}{Model 4 (Time + Entity FE)}  \\
-            \hline \\[-1.8ex]
-             PISA Math in global P99 & -31.228$^{*}$ & -38.928$^{*}$ & -34.569$^{*}$ & -115.492$^{***}$ \\
+            PISA Math in global P99 & -31.228$^{*}$ & -38.928$^{*}$ & -34.569$^{*}$ & -115.492$^{***}$ \\
             & (16.314) & (20.802) & (17.850) & (36.599) \\
-             IMO score per log population & 10.674$^{*}$ & 4.924$^{}$ & 3.122$^{}$ & -11.158$^{}$ \\
+            IMO score per log population & 10.674$^{*}$ & 4.924$^{}$ & 3.122$^{}$ & -11.158$^{}$ \\
             & (6.363) & (7.470) & (6.441) & (15.728) \\
-             ARWU insitutions & -166.641$^{**}$ & -162.705$^{*}$ & -176.049$^{**}$ & -159.960$^{}$ \\
+            ARWU insitutions & -166.641$^{**}$ & -162.705$^{*}$ & -176.049$^{**}$ & -159.960$^{}$ \\
             & (68.800) & (86.871) & (72.281) & (112.884) \\
-             Time Effects & No & No & Yes & Yes \\
-             Fixed Effects & No & No & No & Yes \\
-             Controls & No & Yes & Yes & Yes \\
-             Entities & 89 & 89 & 89 & 89 \\
+            GDP per capita & & -0.001$^{}$ & -0.001$^{}$ & 0.003$^{}$ \\
+            & & (0.001) & (0.001) & (0.003) \\
+            PISA Math & & 0.619$^{}$ & 0.425$^{}$ & 0.178$^{}$ \\
+            & & (0.716) & (0.684) & (1.735) \\
+            Primary School Completion Rate & & -12.285$^{***}$ & -6.467$^{*}$ & -3.713$^{}$ \\
+            & & (4.104) & (3.586) & (4.965) \\
+            Lower Sec. Completion Rate & & -0.425$^{}$ & -0.953$^{}$ & -0.194$^{}$ \\
+            & & (3.533) & (2.958) & (4.475) \\
+            Upper Sec. Completion Rate & & 6.987$^{**}$ & 5.721$^{**}$ & 3.474$^{}$ \\
+            & & (2.843) & (2.375) & (3.707) \\
+            Democracy Rating & & 3.880$^{}$ & -5.350$^{}$ & 53.356$^{}$ \\
+            & & (17.079) & (14.344) & (62.249) \\
+            Population & & -0.000$^{}$ & -0.000$^{}$ & 0.000$^{}$ \\
+            & & (0.000) & (0.000) & (0.000) \\
+            Time Effects & No & No & Yes & Yes \\
+            Fixed Effects & No & No & No & Yes \\
+            Controls & No & Yes & Yes & Yes \\
+            Entities & 89 & 89 & 89 & 89 \\
             \hline \\[-1.8ex]
-             Observations & 440 & 440 & 440 & 440 \\
-             $R^2$ & 0.037 & 0.077 & 0.374 & 0.553 \\
-             Adjusted $R^2$ & 0.031 & 0.056 & 0.351 & 0.414 \\
-             Residual Std. Error & 445.700 (df=436) & 439.888 (df=429) & 364.790 (df=423) & 346.511 (df=335) \\
-             F Statistic & 5.616$^{***}$ (df=3; 436) & 3.589$^{***}$ (df=10; 429) & 15.813$^{***}$ (df=16; 423) & 3.983$^{***}$ (df=104; 335) \\
+            Observations & 440 & 440 & 440 & 440 \\
+            $R^2$ & 0.037 & 0.077 & 0.374 & 0.553 \\
+            Adjusted $R^2$ & 0.031 & 0.056 & 0.351 & 0.414 \\
+            Residual Std. Error & 445.700 (df=436) & 439.888 (df=429) & 364.790 (df=423) & 346.511 (df=335) \\
+            F Statistic & 5.616$^{***}$ (df=3; 436) & 3.589$^{***}$ (df=10; 429) & 15.813$^{***}$ (df=16; 423) & 3.983$^{***}$ (df=104; 335) \\
             \hline
             \hline \\[-1.8ex]
             \textit{Note:} & \multicolumn{4}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\
@@ -324,9 +335,9 @@ Due to data availability, this panel is also imbalanced, which will potentially 
 \end{table}
 
 \subsection{Yearly Regressions}
-The results from the earlier panel regressions assume that the relationship between the elite orientation variables and growth is static through time. Whether this is true can be tested by regressing each year separately and comparing the results in table \ref{table:yearly}\footnote{Full regression results available in appendix}.
+The results from the earlier panel regressions assume that the relationship between the elite orientation variables and growth is static through time. Whether this is true can be tested by regressing each year separately and comparing the results in table \ref{table:yearly}.
 \begin{table}[H] \centering
-    \caption{Yearly regression results (partial)}
+    \caption{Yearly regression results}
     \label{table:yearly}
     \resizebox{\linewidth}{!} {
         \begin{tabular}{@{\extracolsep{1pt}}lcccccccc}
@@ -336,25 +347,39 @@ The results from the earlier panel regressions assume that the relationship betw
             \cr \cline{2-9}
             \\[-1.8ex] & \multicolumn{1}{c}{2003} & \multicolumn{1}{c}{2006} & \multicolumn{1}{c}{2009} & \multicolumn{1}{c}{2012} & \multicolumn{1}{c}{2015} & \multicolumn{1}{c}{2018} & \multicolumn{1}{c}{2022} & \multicolumn{1}{c}{Panel FE}  \\
             \hline \\[-1.8ex]
-             PISA Math in global P99 & -52.490$^{}$ & -193.475$^{**}$ & 154.062$^{**}$ & 16.575$^{}$ & -34.309$^{}$ & 3.769$^{}$ & -69.681$^{**}$ & -115.492$^{***}$ \\
+            PISA Math in global P99 & -52.490$^{}$ & -193.475$^{**}$ & 154.062$^{**}$ & 16.575$^{}$ & -34.309$^{}$ & 3.769$^{}$ & -69.681$^{**}$ & -115.492$^{***}$ \\
             & (48.524) & (84.559) & (62.680) & (36.365) & (76.140) & (27.106) & (27.702) & (36.599) \\
-             IMO score per log population & 4.478$^{}$ & -9.112$^{}$ & 14.038$^{}$ & 7.368$^{}$ & -16.622$^{}$ & 2.193$^{}$ & -0.174$^{}$ & -11.158$^{}$ \\
+            IMO score per log population & 4.478$^{}$ & -9.112$^{}$ & 14.038$^{}$ & 7.368$^{}$ & -16.622$^{}$ & 2.193$^{}$ & -0.174$^{}$ & -11.158$^{}$ \\
             & (17.327) & (20.741) & (17.012) & (13.983) & (27.567) & (7.722) & (13.474) & (15.728) \\
-             ARWU insitutions & -300.038$^{**}$ & -454.401$^{***}$ & 136.623$^{}$ & -344.990$^{**}$ & 289.270$^{}$ & 61.220$^{}$ & -829.105$^{***}$ & -159.960$^{}$ \\
+            ARWU insitutions & -300.038$^{**}$ & -454.401$^{***}$ & 136.623$^{}$ & -344.990$^{**}$ & 289.270$^{}$ & 61.220$^{}$ & -829.105$^{***}$ & -159.960$^{}$ \\
             & (111.479) & (167.497) & (188.401) & (133.886) & (270.034) & (125.503) & (206.280) & (112.884) \\
+            GDP per capita & -0.006$^{**}$ & -0.002$^{}$ & 0.001$^{}$ & -0.001$^{}$ & -0.006$^{}$ & -0.005$^{***}$ & 0.006$^{**}$ & 0.003$^{}$ \\
+            & (0.002) & (0.003) & (0.003) & (0.002) & (0.004) & (0.002) & (0.002) & (0.003) \\
+            PISA Math & 0.249$^{}$ & 7.035$^{***}$ & -6.937$^{***}$ & -0.491$^{}$ & 0.821$^{}$ & 0.569$^{}$ & -0.167$^{}$ & 0.178$^{}$ \\
+            & (1.297) & (1.912) & (2.123) & (1.433) & (2.761) & (0.902) & (1.740) & (1.735) \\
+            Primary School Completion Rate & 6.925$^{}$ & -16.869$^{*}$ & 5.847$^{}$ & -18.172$^{*}$ & -3.633$^{}$ & -10.961$^{*}$ & 8.541$^{}$ & -3.713$^{}$ \\
+            & (4.099) & (9.959) & (12.616) & (9.406) & (15.424) & (5.520) & (9.635) & (4.965) \\
+            Lower Sec. Completion Rate & 3.602$^{}$ & 4.599$^{}$ & -1.055$^{}$ & 3.160$^{}$ & -3.755$^{}$ & 7.661$^{*}$ & -13.399$^{}$ & -0.194$^{}$ \\
+            & (5.833) & (7.560) & (8.015) & (5.762) & (11.445) & (3.943) & (8.270) & (4.475) \\
+            Upper Sec. Completion Rate & 6.665$^{}$ & 7.703$^{}$ & -3.138$^{}$ & 6.683$^{}$ & 8.578$^{}$ & 0.592$^{}$ & 10.791$^{*}$ & 3.474$^{}$ \\
+            & (5.501) & (6.400) & (7.135) & (4.402) & (8.549) & (3.205) & (6.224) & (3.707) \\
+            Democracy Rating & -93.930$^{**}$ & -128.938$^{**}$ & 62.124$^{}$ & 50.055$^{}$ & -10.567$^{}$ & 10.312$^{}$ & 0.508$^{}$ & 53.356$^{}$ \\
+            & (36.761) & (54.593) & (42.994) & (30.254) & (53.029) & (16.079) & (29.080) & (62.249) \\
+            Population & -0.000$^{}$ & -0.000$^{}$ & 0.000$^{}$ & 0.000$^{}$ & -0.000$^{}$ & -0.000$^{}$ & -0.000$^{}$ & 0.000$^{}$ \\
+            & (0.000) & (0.000) & (0.000) & (0.000) & (0.000) & (0.000) & (0.000) & (0.000) \\
             Controls & Yes & Yes & Yes & Yes & Yes & Yes & Yes & Yes \\
             \hline \\[-1.8ex]
-             Observations & 40 & 56 & 69 & 61 & 65 & 73 & 76 & 440 \\
-             $R^2$ & 0.675 & 0.499 & 0.264 & 0.302 & 0.100 & 0.294 & 0.417 & 0.553 \\
-             Adjusted $R^2$ & 0.562 & 0.387 & 0.137 & 0.162 & -0.067 & 0.180 & 0.327 & 0.414 \\
-             Residual Std. Error & 179.479 (df=29) & 365.156 (df=45) & 402.134 (df=58) & 254.369 (df=50) & 490.971 (df=54) & 180.728 (df=62) & 335.236 (df=65) & 346.511 (df=335) \\
-             F Statistic & 6.011$^{***}$ (df=10; 29) & 4.479$^{***}$ (df=10; 45) & 2.075$^{**}$ (df=10; 58) & 2.158$^{**}$ (df=10; 50) & 0.598$^{}$ (df=10; 54) & 2.581$^{**}$ (df=10; 62) & 4.649$^{***}$ (df=10; 65) & 3.983$^{***}$ (df=104; 335) \\
+            Observations & 40 & 56 & 69 & 61 & 65 & 73 & 76 & 440 \\
+            $R^2$ & 0.675 & 0.499 & 0.264 & 0.302 & 0.100 & 0.294 & 0.417 & 0.553 \\
+            Adjusted $R^2$ & 0.562 & 0.387 & 0.137 & 0.162 & -0.067 & 0.180 & 0.327 & 0.414 \\
+            Residual Std. Error & 179.479 (df=29) & 365.156 (df=45) & 402.134 (df=58) & 254.369 (df=50) & 490.971 (df=54) & 180.728 (df=62) & 335.236 (df=65) & 346.511 (df=335) \\
+            F Statistic & 6.011$^{***}$ (df=10; 29) & 4.479$^{***}$ (df=10; 45) & 2.075$^{**}$ (df=10; 58) & 2.158$^{**}$ (df=10; 50) & 0.598$^{}$ (df=10; 54) & 2.581$^{**}$ (df=10; 62) & 4.649$^{***}$ (df=10; 65) & 3.983$^{***}$ (df=104; 335) \\
             \hline
             \hline \\[-1.8ex]
             \textit{Note:} & \multicolumn{8}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\
             \end{tabular}
-    }
-    \end{table}
+}
+\end{table}
 
 From table \ref{table:yearly}, we see that there is significant year-to-year change in the magnitude and direction of the elite orientation coefficients. Over the 7 distinct years, the $R^2$ also varies significantly, which suggests that exogenous changes in the world affect the explanatory power of the controls and elite orientation variables.
 
@@ -450,6 +475,103 @@ The inconsistent results between different model specifications and high standar
 
 \subsection{Imputation Problems}
 As around 75\% of the school completion rates in the dataset are imputed with XGBoost, there are concerns that this may introduce bias into the dataset. First, tree-based models are prone to overfitting, so the imputed data may bias the regression. Second, the fitted values have unknown errors (as many countries never had any completion data at all). To help reduce the first concern, the training data is a superset of the regression data and includes many more countries and years. Cross validation is also used to reduce overfitting.
+
+\begin{table}[H] \centering
+    \caption{Results on un-imputed data}
+    \label{table:reg-noimpute}
+    \resizebox{\linewidth}{!} {
+    \begin{tabular}{@{\extracolsep{5pt}}lcccc}
+    \\[-1.8ex]\hline
+    \hline \\[-1.8ex]
+    & \multicolumn{4}{c}{\textit{Dependent variable: GDP per capita growth}} \
+    \cr \cline{2-5}
+    \\[-1.8ex] & \multicolumn{1}{c}{Model 1 (base)} & \multicolumn{1}{c}{Model 2} & \multicolumn{1}{c}{Model 3 (Time FE)} & \multicolumn{1}{c}{Model 4 (Time + Entity FE)}  \\
+    \hline \\[-1.8ex]
+     PISA Math in global P99 & -31.228$^{*}$ & 5.985$^{}$ & 8.659$^{}$ & 25.421$^{}$ \\
+    & (16.314) & (22.468) & (21.493) & (84.291) \\
+     IMO score per log population & 10.674$^{*}$ & 6.824$^{}$ & 12.529$^{}$ & 50.506$^{}$ \\
+    & (6.363) & (9.440) & (8.631) & (32.187) \\
+     ARWU insitutions & -166.641$^{**}$ & -190.750$^{}$ & -249.208$^{**}$ & -454.384$^{}$ \\
+    & (68.800) & (127.229) & (116.476) & (351.559) \\
+     Time Effects & No & No & Yes & Yes \\
+     Fixed Effects & No & No & No & Yes \\
+     Controls & No & Yes & Yes & Yes \\
+    \hline \\[-1.8ex]
+     Observations & 440 & 112 & 112 & 112 \\
+     $R^2$ & 0.037 & 0.204 & 0.383 & 0.715 \\
+     Adjusted $R^2$ & 0.031 & 0.125 & 0.294 & 0.355 \\
+     Residual Std. Error & 445.700 (df=436) & 236.761 (df=101) & 212.750 (df=97) & 203.207 (df=49) \\
+     F Statistic & 5.616$^{***}$ (df=3; 436) & 2.587$^{***}$ (df=10; 101) & 4.294$^{***}$ (df=14; 97) & 1.987$^{***}$ (df=62; 49) \\
+    \hline
+    \hline \\[-1.8ex]
+    \textit{Note:} & \multicolumn{4}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\
+    \end{tabular}
+    }
+\end{table}
+
+\begin{table}[!htbp] \centering
+    \caption{Results on un-imputed rows but using imputed variables}
+    \label{table:reg-impute}
+    \resizebox{\linewidth}{!} {
+    \begin{tabular}{@{\extracolsep{5pt}}lcccc}
+    \\[-1.8ex]\hline
+    \hline \\[-1.8ex]
+    & \multicolumn{4}{c}{\textit{Dependent variable: GDP per capita growth}} \
+    \cr \cline{2-5}
+    \\[-1.8ex] & \multicolumn{1}{c}{Model 1 (base)} & \multicolumn{1}{c}{Model 2} & \multicolumn{1}{c}{Model 3 (Time FE)} & \multicolumn{1}{c}{Model 4 (Time + Entity FE)}  \\
+    \hline \\[-1.8ex]
+     PISA Math in global P99 & -31.228$^{*}$ & -2.504$^{}$ & 0.536$^{}$ & -39.980$^{}$ \\
+    & (16.314) & (22.218) & (21.288) & (70.960) \\
+     IMO score per log population & 10.674$^{*}$ & 9.569$^{}$ & 12.465$^{}$ & 39.725$^{}$ \\
+    & (6.363) & (9.055) & (8.258) & (37.400) \\
+     ARWU insitutions & -166.641$^{**}$ & -258.397$^{**}$ & -306.807$^{***}$ & -336.747$^{}$ \\
+    & (68.800) & (124.418) & (114.960) & (384.764) \\
+     Time Effects & No & No & Yes & Yes \\
+     Fixed Effects & No & No & No & Yes \\
+     Controls & No & Yes & Yes & Yes \\
+    \hline \\[-1.8ex]
+     Observations & 440 & 112 & 112 & 112 \\
+     $R^2$ & 0.037 & 0.262 & 0.418 & 0.706 \\
+     Adjusted $R^2$ & 0.031 & 0.189 & 0.334 & 0.334 \\
+     Residual Std. Error & 445.700 (df=436) & 227.983 (df=101) & 206.627 (df=97) & 206.630 (df=49) \\
+     F Statistic & 5.616$^{***}$ (df=3; 436) & 3.582$^{***}$ (df=10; 101) & 4.969$^{***}$ (df=14; 97) & 1.896$^{**}$ (df=62; 49) \\
+    \hline
+    \hline \\[-1.8ex]
+    \textit{Note:} & \multicolumn{4}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\
+    \end{tabular}
+    }
+    \end{table}
+
+Comparing the panel regressions on the subset of data where all variables are available (table \ref{table:reg-noimpute}) and panel regressions on the same subset but using imputed school completion variables (table \ref{table:reg-impute}) ($n=112$), there does exist some noticeable differences. The main changes are in the PISA math in global 99th percentile variable, which has become smaller (more negative). However, the standard errors are similar (and quite large).
+
+The fixed effects model with country dummies has also changed significantly, especially for the PISA math 99 variable.
+
+The relationships between the controls and the elite orientation variables are likely to have changed as the XGBoost model has to some extent forced the existence of a relationship.
+
+Imputation using a machine learning model is novel and imperfect, but it has allowed us to expand the data available by 75\%.
+
+\subsection{PISA data availability}
+By nature of using the PISA test data, this study is restricted to countries (many of which are OECD) which are tested. These countries are wealthier than normal, which limits the variation available. This also limits the ability of the findings to be extrapolated to other countries as there may be heterogeneity involved. Excluding the PISA variables to expand the dataset is imperfect as is omitted variable bias.
+
+\subsection{Heterogeneity}
+Another concern lies with the regression models specified. One possibility is that having a better educated population and a more elite-oriented education system is more beneficial to lower income countries. A country may experience large economic gains as a foreign outsourcing destination by providing skilled workers at lower cost. Prior research has suggested the importance of high-quality education to economic development. An extension to this paper may test specifications which allow for heterogeneity in the relationships.
+
+\subsection{Reverse causality and timeline of effect}
+GDP per capita \textit{growth} rather than levels was selected as the target variable for the regression to reduce reverse causality concerns. However, this may still be present as countries experiencing fast growth may attempt to sustain that growth by investing in research and/or increasing academic performance. As an example, Saudi Arabia increased its number of ARWU ranked universities from 4 in 2018 to 7 in 2022. Although this paper does not make any attempt to claim causality, this raises a more important concern of effect timelines.
+
+The current regression framework in this paper does not include any lags and a reader may be concerned that educational reforms in year $T$ may only affect growth in year $T+X$. This is a legitimate concern, but it is partially addressed by the low variation in elite orientation variables. This implies that the year T was far before the year 2003, so we are already seeing the structural effects in the years $T+X+\Delta$.
+
+\subsection{Elite Orientation Variable Choice}
+Literature on measuring the elite orientation of an education system is limited and there have not been any formal theoretical macro frameworks on this. If the hypothesis that the selected elite orientation variables are not good proxies for cultural and institutional factors relating to elite academic achievement, then this would negatively affect the interpretation of the results.
+
+\subsection{Omitted Variable Bias}
+Significant coefficient changes in the yearly regression model suggest that omitted variable bias is a problem in this paper. Although some of the global macro shocks (e.g., 2008 GFC) are captured by the time fixed effects, the underlying factors which cause some economies to have been more vulnerable to such crises may not be. More details on this is discussed above in the results section.
+
+\section{Conclusion}
+It was difficult to pin down precise statistical relationships between the elite orientation variables selected (IMO scores, PISA in 99th percentile, ARWU-ranked university counts) and the growth of GDP per capita. However, the results heavily suggest that IMO scores may be the most useful indicator of an elite-oriented education system because it is minimally correlated with other metrics of mean achievement (GDP per capita, mean math scores) than the other two. A future study may examine IMO scores in greater detail, especially at a more micro level to validate the hypothesis that it is a powerful indicator.
+
+
+
 \pagebreak
 \nocite{*}
 \printbibliography

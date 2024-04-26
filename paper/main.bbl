@@ -109,6 +109,49 @@
       \verb https://www.aeaweb.org/articles?id=10.1257/aer.90.4.847
       \endverb
     \endentry
+    \entry{CAMPBELL1996479}{article}{}
+      \name{author}{2}{}{%
+        {{hash=f13641d737bbc777fb9e4cfcc2238f0f}{%
+           family={Campbell},
+           familyi={C\bibinitperiod},
+           given={James\bibnamedelima Reed},
+           giveni={J\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=6168e3da5904364be0a42d886d8e23eb}{%
+           family={Wu},
+           familyi={W\bibinitperiod},
+           given={Wu-Tien},
+           giveni={W\bibinithyphendelim T\bibinitperiod}}}%
+      }
+      \strng{namehash}{bf8012be064b2758abeb614fff556368}
+      \strng{fullhash}{bf8012be064b2758abeb614fff556368}
+      \strng{bibnamehash}{bf8012be064b2758abeb614fff556368}
+      \strng{authorbibnamehash}{bf8012be064b2758abeb614fff556368}
+      \strng{authornamehash}{bf8012be064b2758abeb614fff556368}
+      \strng{authorfullhash}{bf8012be064b2758abeb614fff556368}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{This monograph deals with descriptions and evaluations of the Math Olympiad programs in five countries: United States, Taiwan, China, Japan, and Russia. This chapter provides the rationale underlying academic competitions that are designed to identify and nurture highly gifted individuals. The chapter also supplies the theoretical framework used in three parallel retrospective studies (United States, Taiwan, China), the results of which are summarized in separate chapters.}
+      \field{issn}{0883-0355}
+      \field{journaltitle}{International Journal of Educational Research}
+      \field{number}{6}
+      \field{title}{Development of exceptional academic talent: International research studies}
+      \field{volume}{25}
+      \field{year}{1996}
+      \true{nocite}
+      \field{pages}{479\bibrangedash 484}
+      \range{pages}{6}
+      \verb{doi}
+      \verb https://doi.org/10.1016/S0883-0355(97)86726-2
+      \endverb
+      \verb{urlraw}
+      \verb https://www.sciencedirect.com/science/article/pii/S0883035597867262
+      \endverb
+      \verb{url}
+      \verb https://www.sciencedirect.com/science/article/pii/S0883035597867262
+      \endverb
+    \endentry
     \entry{Hanushek_Woessmann_2010}{book}{}
       \name{author}{2}{}{%
         {{hash=ab739a255c8b5c754c14f9fa8eefafdf}{%
